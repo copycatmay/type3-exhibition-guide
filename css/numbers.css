@@ -1,0 +1,719 @@
+/* ============================================================
+   LAYOUT B — variant (to be designed)
+   ============================================================ */
+
+/* ============================================================
+   YOUNG SERIF — self-hosted
+   ============================================================ */
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+/* e.g. var(--color-3) → accent colour on row group borders;
+        var(--page-padding) → body padding, h2 bleed margins  */
+:root {
+  --color-1: #000000;
+  --color-2: #73748f;
+  --color-3: #8427ff; /* main accent */
+  --color-4: #c24fff;
+  --color-5: #f16bff;
+  --color-6: #ffffff;
+
+  --font-display: "YoungSerif", serif;
+  --font-body: akzidenz-grotesk-next, sans-serif;
+  --font-expanded: akzidenz-grotesk-next-extend, sans-serif;
+  --font-condensed: akzidenz-grotesk-next-conden, sans-serif;
+
+  --page-padding: 1.25rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --page-padding: 2.5rem;
+  }
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+/* e.g. *, html, body — global defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--color-6) url("../img/bg/doug-bg-1.png") center / cover no-repeat
+    fixed;
+  color: var(--color-1);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  padding: var(--page-padding);
+  padding-top: calc(var(--page-padding) + 2rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+html body {
+  padding-top: calc(var(--page-padding) + 2rem);
+}
+
+/* ============================================================
+   SECTION LAYOUT — 3-column horizontal swipe
+   Col 0: labels  Col 1: numbers  Col 2: h2
+   Default view: col 2 (h2).
+   ============================================================ */
+#exhibitions-by-the-numbers {
+  position: relative;
+  overflow: hidden;
+  min-height: 100svh;
+}
+
+/* ============================================================
+   SWIPE TRACK — flex row: data-panel (2 cols) + h2-panel (1 col)
+   Created dynamically by layout-b.js
+   ============================================================ */
+.swipe-track {
+  display: flex;
+  width: 300%;
+  min-height: 100svh;
+  transform: translateX(-66.667%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ============================================================
+   DATA PANEL — spans cols 0-1 (2 section-widths)
+   Contains original articles with wide table-layout
+   ============================================================ */
+.data-panel {
+  width: 66.667%;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding: 2rem 1rem 1rem;
+}
+@media (min-width: 768px) {
+  .data-panel {
+    padding: 4rem 2rem 2rem;
+  }
+}
+
+/* Tables span 2 section-widths: labels left, numbers right */
+.data-panel .table-wrapper {
+  overflow: visible;
+}
+
+.data-panel table {
+  table-layout: fixed;
+}
+
+/* First column (labels) = left viewport-width */
+.data-panel thead th:first-child,
+.data-panel tbody td:first-child,
+.data-panel tbody th[scope="row"],
+.data-panel tfoot td:first-child,
+.data-panel tfoot th[scope="row"] {
+  width: 50%;
+}
+
+/* Year column headers — "2023", "2022" in data-panel, 12pt */
+.data-panel thead th:not(:first-child) {
+  font-size: 12pt;
+}
+
+/* Number cells — "$22,553", "$4,079", "($1,998)" etc.
+   data-panel override: 16pt/24pt */
+.data-panel tbody td:not(:first-child),
+.data-panel tfoot td:not(:first-child) {
+  font-size: 16pt;
+  padding: 0.2rem 0;
+}
+@media (min-width: 768px) {
+  .data-panel tbody td:not(:first-child),
+  .data-panel tfoot td:not(:first-child) {
+    font-size: 24pt;
+    padding: 0.3rem 0;
+  }
+}
+
+/* Labels column — "Government grants", "Administration", "Current assets" etc.
+   data-panel override: 16pt/24pt, flush left */
+.data-panel tbody td:first-child {
+  font-size: 16pt;
+  white-space: normal;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+.data-panel tbody th[scope="row"],
+.data-panel tfoot th[scope="row"] {
+  font-size: 16pt;
+  padding-left: 1rem;
+}
+.data-panel tfoot td:first-child {
+  padding-left: 0;
+}
+@media (min-width: 768px) {
+  .data-panel tbody td:first-child {
+    font-size: 24pt;
+  }
+  .data-panel tbody th[scope="row"],
+  .data-panel tfoot th[scope="row"] {
+    font-size: 24pt;
+    padding-left: 1.5rem;
+  }
+}
+
+/* Align all thead cells flush left/right */
+.data-panel thead th {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ============================================================
+   H2 PANEL — col 2, vertical heading
+   "Numbers" h2, vertical-rl, YoungSerif 240pt/92pt
+   e.g. <h2>Numbers</h2> inside .h2-panel
+   ============================================================ */
+.swipe-panel {
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.h2-panel {
+  width: 33.333%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+  position: relative;
+}
+
+#exhibitions-by-the-numbers h2 {
+  font-family: var(--font-display);
+  font-size: 240pt;
+  font-weight: 500;
+  line-height: 0.9;
+  color: var(--color-6);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  #exhibitions-by-the-numbers h2 {
+    font-size: 92pt;
+  }
+}
+
+/* ============================================================
+   PINNED HEADERS — h3, meta, row-group headers
+   Stay in flow (correct vertical spacing), counter-translated
+   by JS so they stay at viewport left edge when swiping.
+   ============================================================ */
+.pinned-header {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   SWIPE AFFORDANCE — animated chevron + "swipe" label
+   left-arrow chevron, "swipe" text, 7pt uppercase
+   e.g. <div class="swipe-hint"> (::before = chevron, ::after = "swipe")
+   ============================================================ */
+.swipe-hint {
+  position: absolute;
+  left: 1.25rem;
+  top: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  animation: nudge 2.4s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+
+.swipe-hint::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-left: 1.5px solid var(--color-6);
+  border-bottom: 1.5px solid var(--color-6);
+  transform: rotate(45deg);
+}
+
+.swipe-hint::after {
+  content: "swipe";
+  font-family: var(--font-body);
+  font-size: 7pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-6);
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+}
+
+/* ============================================================
+   SWIPE DOTS — fixed pagination indicator (3 dots)
+   ============================================================ */
+.swipe-dots {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.swipe-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.2px solid var(--color-1);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.swipe-dots .dot.active {
+  background: var(--color-1);
+}
+
+/* ============================================================
+   ARTICLE — sub-section
+   e.g. <article id="statement-of-operations">,
+        <article id="balance-sheet">
+   ============================================================ */
+article {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0.5rem;
+  background-color: var(--color-6);
+  border: 1.2px solid var(--color-1);
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  article {
+    margin-bottom: 3rem;
+    padding: 2rem;
+  }
+}
+
+/* ============================================================
+   SUB-SECTION HEADING — h3
+   "Statement of Operations", "Balance Sheet"
+   akzidenz 24pt, weight 300, uppercase
+   e.g. <h3>Statement<br>of Operations</h3>,
+        <h3>Balance Sheet</h3>
+   ============================================================ */
+article > h3 {
+  font-family: var(--font-display);
+  font-size: 24pt;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-1);
+  margin-bottom: 0.25rem;
+  text-transform: none;
+  line-height: 0.95;
+}
+
+/* ============================================================
+   META TEXT — year / currency note
+   "Year ended March 31", "(reported in thousands of dollars)"
+   "As of March 31"
+   akzidenz 9.5pt, color-2
+   e.g. <p>Year ended March 31</p>,
+        <p>(reported in thousands of dollars)</p>
+   ============================================================ */
+article > p {
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--color-2);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   TABLE
+   e.g. <div class="table-wrapper">, <table>, <thead>
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+}
+@media (min-width: 768px) {
+  table {
+    font-size: 16pt;
+  }
+}
+
+/* Column headers — year labels
+   "2023", "2022"
+   akzidenz 9.5pt (base) / 12pt (data-panel override), weight 700
+   e.g. <th scope="col">2023</th>, <th scope="col">2022</th> */
+thead th {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-align: right;
+  padding: 0.25rem 0.5rem;
+  color: var(--color-1);
+}
+
+/* Purple tint on row-group header <tr> — 20% opacity
+   Applied to tr (not th) so bg stays in place during counter-translate */
+tbody tr:first-child:has(th[colspan]) {
+  background-color: color-mix(in srgb, var(--color-3) 20%, transparent);
+}
+
+thead th:first-child {
+  text-align: left;
+}
+
+/* Row group headers — Revenue, Expenses, Assets, Liabilities
+   "Revenue", "Expenses", "Assets", "Liabilities"
+   akzidenz 16pt/24pt, weight 700, purple border-bottom
+   e.g. <th scope="rowgroup" colspan="3">Revenue</th>,
+        <th scope="rowgroup" colspan="3">Expenses</th> */
+tbody tr:first-child th[colspan] {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  font-weight: 400;
+  text-align: left;
+  padding: 0.75rem 0 0.25rem 1rem;
+  color: var(--color-1);
+  border-bottom: 1px solid var(--color-3);
+}
+@media (min-width: 768px) {
+  tbody tr:first-child th[colspan] {
+    font-size: 24pt;
+    padding: 1.25rem 0 0.25rem 1.5rem;
+  }
+}
+
+/* Data rows — labels + dollar values
+   "Government grants", "Admissions, program income", "Administration"
+   "Current assets", "Current liabilities", "Long-term debt"
+   akzidenz 9.5pt/16pt, weight 400
+   e.g. <td>Government grants</td>, <td>$22,553</td>,
+        <td>Physical plant and security</td>, <td>$10,741</td> */
+tbody td,
+tbody th[scope="row"] {
+  padding: 0.2rem 0.35rem;
+  vertical-align: top;
+  font-size: 9.5pt;
+  font-weight: 400;
+  font-family: var(--font-condensed);
+}
+@media (min-width: 768px) {
+  tbody td,
+  tbody th[scope="row"] {
+    padding: 0.3rem 0.5rem;
+    font-size: 16pt;
+  }
+}
+
+tbody th[scope="row"] {
+  text-align: left;
+  font-weight: 400;
+}
+
+tbody td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Alternating row tint
+   e.g. even data rows in Revenue, Assets tbody blocks */
+tbody tr:not(:first-child):nth-child(even) {
+  background-color: color-mix(in srgb, var(--color-3) 4%, transparent);
+}
+
+/* Total rows — bold with top border
+   "Total Revenue", "Total Expenses", "Total Assets", "Total Liabilities"
+   "Excess of revenue over expenses", "Net surplus (deficit), end of year"
+   "Total Liabilities and Net Surplus"
+   weight 700, border-top solid
+   e.g. <tr class="row-total"><th>Total Revenue</th><td>$74,919</td>...</tr> */
+tr.row-total th,
+tr.row-total td {
+  font-weight: 400;
+  font-family: var(--font-body);
+  border-top: 1px solid var(--color-1);
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+
+/* tfoot rows — net results below main tbody
+   "Remeasurement related to pension plan", "Net surplus, beginning of year"
+   "Cumulative net surplus (deficit)", "($5,597)", "$1,732"
+   akzidenz 9.5pt/16pt, weight 400
+   e.g. <tfoot><tr><td>Remeasurement related to pension plan</td>...</tr></tfoot> */
+tfoot td,
+tfoot th {
+  padding: 0.2rem 0.35rem;
+  font-size: 16pt;
+  font-weight: 400;
+  font-family: var(--font-condensed);
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  tfoot td,
+  tfoot th {
+    padding: 0.3rem 0.5rem;
+    font-size: 16pt;
+  }
+}
+
+tfoot th[scope="row"] {
+  text-align: left;
+}
+
+tfoot td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+tfoot tr.row-total th,
+tfoot tr.row-total td {
+  font-weight: 700;
+  border-top: 1px solid var(--color-1);
+}
+
+/* ============================================================
+   DIRECTOR SIGNATURE
+   "Director [insert a signature]"
+   16pt, color-2, italic purple span
+   e.g. <p class="director-signature">Director <span>[insert a signature]</span></p>
+   ============================================================ */
+.director-signature {
+  font-size: 16pt;
+  margin: 1.5rem 0 1rem;
+  color: var(--color-2);
+}
+
+.director-signature span {
+  color: var(--color-3);
+  font-style: italic;
+}
+
+/* ============================================================
+   NOTES — footnotes below each table
+   "The above statement of operations...", "Works of Art are included..."
+   akzidenz 7pt, color-2, numbered list
+   e.g. <ol class="notes"><li>The above statement of operations...</li></ol>
+   ============================================================ */
+.notes {
+  font-family: var(--font-body);
+  font-size: 7pt;
+  color: var(--color-2);
+  line-height: 1.5;
+  padding-left: 1.25rem;
+  border-top: 1px solid var(--color-2);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  max-width: 46%;
+}
+
+.notes li + li {
+  margin-top: 0.4rem;
+}
+
+/* ============================================================
+   EXPAND BUTTON
+   e.g. <button class="expand-btn"> top-right of each article,
+        also used as close button inside the modal
+   ============================================================ */
+.expand-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 28px;
+  height: 28px;
+  border: 1.2px solid var(--color-1);
+  border-radius: 4px;
+  background: var(--color-6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-1);
+  z-index: 1;
+}
+
+/* ============================================================
+   ARTICLE MODAL — landscape expand view
+   Created dynamically by expand.js
+   ============================================================ */
+.article-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.article-modal.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close button sits at physical bottom-right of screen, outside the rotated content */
+.article-modal > .expand-btn {
+  position: fixed;
+  top: auto;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  z-index: 1001;
+}
+
+/* Inner content rotated 90deg to fill screen as landscape */
+.article-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: var(--color-6);
+  padding: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Mirror article > h3 styles inside modal */
+.article-modal-content h3 {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-1);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Use desktop table sizes in modal since it's the expanded view */
+.article-modal-content table {
+  font-size: 16pt;
+}
+.article-modal-content tbody tr:first-child th[colspan] {
+  font-size: 24pt;
+  padding: 1.25rem 0 0.25rem;
+}
+.article-modal-content tbody td,
+.article-modal-content tbody th[scope="row"] {
+  font-size: 16pt;
+  padding: 0.3rem 0.5rem;
+}
+.article-modal-content tfoot td,
+.article-modal-content tfoot th {
+  font-size: 16pt;
+  padding: 0.3rem 0.5rem;
+}
+
+/* Let table fill modal width without inner scroll conflict */
+.article-modal-content .table-wrapper {
+  overflow: visible;
+}
+
+/* ============================================================
+   LAYOUT B OVERRIDES
+   — No expand modal: hide button, remove article pointer cursor
+   ============================================================ */
+.expand-btn {
+  display: none;
+}
+article {
+  cursor: default;
+}
+
+/* ============================================================
+   HEADER OVERRIDES — solid bar on dark background
+   ============================================================ */
+html .site-header {
+  background-color: var(--color-6);
+}
+
+/* ============================================================
+   WORKING ADJUSTMENTS — scratch space for iterative tweaks
+   Move finalized values up into their proper sections above.
+   ============================================================ */

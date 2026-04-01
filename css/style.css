@@ -1,0 +1,709 @@
+/* ============================================================
+   YOUNG SERIF — self-hosted
+   ============================================================ */
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-RegularItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "YoungSerif";
+  src: url("../fonts/YoungSerif-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+/* e.g. var(--color-3) → accent colour on row group borders;
+        var(--page-padding) → body padding, h2 bleed margins  */
+:root {
+  --color-1: #000000;
+  --color-2: #73748f;
+  --color-3: #8427ff; /* main accent */
+  --color-4: #c24fff;
+  --color-5: #f16bff;
+  --color-6: #ffffff;
+
+  --font-display: "YoungSerif", serif;
+  --font-body: akzidenz-grotesk-next, sans-serif;
+
+  --page-padding: 1.25rem;
+}
+@media (min-width: 768px) {
+  :root {
+    --page-padding: 2.5rem;
+  }
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+/* e.g. *, html, body — global defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-6);
+  color: var(--color-1);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  padding: var(--page-padding);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   SECTION HEADING — h2
+   Young Serif 40pt / 92pt desktop
+   ============================================================ */
+section > h2 {
+  font-family: var(--font-display);
+  font-size: 40pt;
+  font-weight: 500;
+  line-height: 0.9;
+  color: var(--color-1);
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  section > h2 {
+    font-size: 92pt;
+  }
+}
+
+/* ============================================================
+   ARTICLE — sub-section
+   e.g. <article id="statement-of-operations">,
+        <article id="balance-sheet">
+   ============================================================ */
+article {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0.5rem;
+  background-color: rgba(115, 116, 143, 0.06); /* --color-2 at low opacity */
+  border: 1.2px solid var(--color-1);
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  article {
+    margin-bottom: 3rem;
+    padding: 2rem;
+  }
+}
+
+article + article {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* ============================================================
+   SUB-SECTION HEADING — h3
+   e.g. <h3>Statement of Operations</h3>,
+        <h3>Balance Sheet</h3>
+   ============================================================ */
+article > h3 {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-1);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   META TEXT — year / currency note
+   e.g. <p>Year ended March 31</p>,
+        <p>(reported in thousands of dollars)</p>
+   ============================================================ */
+article > p {
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--color-2);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   TABLE
+   e.g. <div class="table-wrapper">, <table>, <thead>
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+}
+@media (min-width: 768px) {
+  table {
+    font-size: 16pt;
+  }
+}
+
+/* Column headers — year labels
+   e.g. <th scope="col">2023</th>, <th scope="col">2022</th> */
+thead th {
+  font-size: 9.5pt;
+  font-weight: 700;
+  text-align: right;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid var(--color-1);
+  color: var(--color-2);
+}
+
+thead th:first-child {
+  text-align: left;
+}
+
+/* Row group headers — Revenue, Expenses, Assets, Liabilities
+   e.g. <th scope="rowgroup" colspan="3">Revenue</th> */
+tbody tr:first-child th[colspan] {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 0 0.25rem;
+  color: var(--color-1);
+  border-bottom: 1px solid var(--color-3);
+}
+@media (min-width: 768px) {
+  tbody tr:first-child th[colspan] {
+    font-size: 24pt;
+    padding: 1.25rem 0 0.25rem;
+  }
+}
+
+/* Data rows
+   e.g. <td>Government grants</td>, <td>$22,553</td> */
+tbody td,
+tbody th[scope="row"] {
+  padding: 0.2rem 0.35rem;
+  vertical-align: top;
+  font-size: 9.5pt;
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  tbody td,
+  tbody th[scope="row"] {
+    padding: 0.3rem 0.5rem;
+    font-size: 16pt;
+  }
+}
+
+tbody th[scope="row"] {
+  text-align: left;
+  font-weight: 400;
+}
+
+tbody td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Alternating row tint
+   e.g. even data rows in Revenue, Assets tbody blocks */
+tbody tr:not(:first-child):nth-child(even) {
+  background-color: rgba(132, 39, 255, 0.04);
+}
+
+/* Total rows
+   e.g. <tr class="row-total"> Total Revenue, Total Expenses */
+tr.row-total th,
+tr.row-total td {
+  font-weight: 700;
+  border-top: 1px solid var(--color-1);
+  padding-top: 1rem;
+}
+
+/* tfoot rows
+   e.g. <tfoot> — net surplus rows, end-of-year figures */
+tfoot td,
+tfoot th {
+  padding: 0.2rem 0.35rem;
+  font-size: 9.5pt;
+  font-weight: 400;
+  vertical-align: top;
+}
+@media (min-width: 768px) {
+  tfoot td,
+  tfoot th {
+    padding: 0.3rem 0.5rem;
+    font-size: 16pt;
+  }
+}
+
+tfoot th[scope="row"] {
+  text-align: left;
+}
+
+tfoot td {
+  text-align: right;
+  white-space: nowrap;
+}
+
+tfoot tr.row-total th,
+tfoot tr.row-total td {
+  font-weight: 700;
+  border-top: 1px solid var(--color-1);
+}
+
+/* ============================================================
+   DIRECTOR SIGNATURE
+   e.g. <p class="director-signature">Director <span>[insert a signature]</span></p>
+   ============================================================ */
+.director-signature {
+  font-size: 16pt;
+  margin: 1.5rem 0 1rem;
+  color: var(--color-2);
+}
+
+.director-signature span {
+  color: var(--color-3);
+  font-style: italic;
+}
+
+/* ============================================================
+   NOTES
+   e.g. <ol class="notes">, <li> footnote items below each table
+   ============================================================ */
+.notes {
+  font-family: var(--font-body);
+  font-size: 7pt;
+  color: var(--color-2);
+  line-height: 1.5;
+  padding-left: 1.25rem;
+  border-top: 1px solid var(--color-2);
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.notes li + li {
+  margin-top: 0.4rem;
+}
+
+/* ============================================================
+   EXPAND BUTTON
+   e.g. <button class="expand-btn"> top-right of each article,
+        also used as close button inside the modal
+   ============================================================ */
+.expand-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 28px;
+  height: 28px;
+  border: 1.2px solid var(--color-1);
+  border-radius: 4px;
+  background: var(--color-6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-1);
+  z-index: 1;
+}
+
+/* ============================================================
+   ARTICLE MODAL — landscape expand view
+   Created dynamically by expand.js
+   ============================================================ */
+.article-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.article-modal.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close button sits at physical bottom-right of screen, outside the rotated content */
+.article-modal > .expand-btn {
+  position: fixed;
+  top: auto;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  z-index: 1001;
+}
+
+/* Inner content rotated 90deg to fill screen as landscape */
+.article-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  transform: translate(-50%, -50%) rotate(90deg);
+  background: var(--color-6);
+  padding: 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Mirror article > h3 styles inside modal */
+.article-modal-content h3 {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-1);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Use desktop table sizes in modal since it's the expanded view */
+.article-modal-content table { font-size: 16pt; }
+.article-modal-content tbody tr:first-child th[colspan] { font-size: 24pt; padding: 1.25rem 0 0.25rem; }
+.article-modal-content tbody td,
+.article-modal-content tbody th[scope="row"] { font-size: 16pt; padding: 0.3rem 0.5rem; }
+.article-modal-content tfoot td,
+.article-modal-content tfoot th { font-size: 16pt; padding: 0.3rem 0.5rem; }
+
+/* Let table fill modal width without inner scroll conflict */
+.article-modal-content .table-wrapper {
+  overflow: visible;
+}
+
+/* ============================================================
+   BODY TEXT — paragraphs inside articles
+   ============================================================ */
+article p {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  line-height: 1.4;
+  color: var(--color-1);
+  margin-bottom: 0.75rem;
+}
+
+article p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   INTRO BODY — exhibition-intro.html, thank-you.html
+   ============================================================ */
+.intro-body {
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   MAIN MENU — index.html
+   ============================================================ */
+.menu-subtitle {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  color: var(--color-2);
+  margin-bottom: 2rem;
+}
+
+.menu-list {
+  list-style: none;
+}
+
+.menu-list li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.menu-list li:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.menu-list a {
+  display: block;
+  padding: 0.75rem 0;
+  font-family: var(--font-body);
+  font-size: 16pt;
+  color: var(--color-1);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-list a:active {
+  color: var(--color-1);
+}
+
+.menu-list a.is-active {
+  color: color-mix(in srgb, var(--link-accent, var(--color-3)) 80%, transparent);
+}
+
+/* ============================================================
+   STAFF LIST — staff-credits.html
+   ============================================================ */
+.staff-list {
+  border: none;
+}
+
+.staff-entry {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(132, 39, 255, 0.08);
+}
+
+.staff-entry dt {
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--color-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.staff-entry dd {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  color: var(--color-1);
+}
+
+/* ============================================================
+   DONATION FORM — donation-card.html
+   ============================================================ */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.donation-form label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--color-2);
+  margin-bottom: 0.25rem;
+}
+
+.donation-form input[type="text"],
+.donation-form input[type="tel"],
+.donation-form input[type="email"],
+.donation-form input[type="number"] {
+  display: block;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 16pt;
+  padding: 0.5rem;
+  border: 1.2px solid var(--color-1);
+  border-radius: 4px;
+  background: var(--color-6);
+  color: var(--color-1);
+}
+
+.form-group--checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.form-group--checkbox label {
+  display: inline;
+  font-size: 16pt;
+  color: var(--color-1);
+}
+
+.donation-amounts {
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.donation-amounts legend {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--color-1);
+  margin-bottom: 0.75rem;
+}
+
+.amount-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.amount-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 16pt;
+  color: var(--color-1);
+  cursor: pointer;
+}
+
+.amount-options input[type="number"] {
+  width: 5rem;
+}
+
+.donate-online {
+  font-size: 9.5pt;
+  color: var(--color-2);
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   CODING WITH CHARACTER — long-form article
+   ============================================================ */
+.article-subtitle {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.article-meta {
+  font-size: 9.5pt;
+  color: var(--color-2);
+}
+
+.article-tldr {
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--color-3);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-3);
+}
+
+article h3 {
+  font-family: var(--font-body);
+  font-size: 24pt;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--color-1);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+article h4 {
+  font-family: var(--font-display);
+  font-size: 16pt;
+  font-weight: 400;
+  color: var(--color-1);
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.font-entry {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(132, 39, 255, 0.08);
+}
+
+.favorite-chars {
+  font-size: 9.5pt;
+  color: var(--color-2);
+  font-style: italic;
+}
+
+.honorable-mentions {
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 16pt;
+  line-height: 1.4;
+  color: var(--color-1);
+  columns: 1;
+}
+@media (min-width: 768px) {
+  .honorable-mentions {
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
+
+.honorable-mentions li {
+  padding: 0.15rem 0;
+  border-bottom: 1px solid rgba(132, 39, 255, 0.04);
+}
+
+/* ============================================================
+   THANK YOU — sponsor logo sections
+   ============================================================ */
+.sponsor-logos {
+  margin-top: 1.5rem;
+}
+
+.sponsor-logos h3 {
+  font-family: var(--font-body);
+  font-size: 16pt;
+  font-weight: 700;
+  color: var(--color-1);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--color-3);
+  text-transform: uppercase;
+}
+
+.logo-grid {
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: 9.5pt;
+  color: var(--color-2);
+  line-height: 1.8;
+  columns: 2;
+  column-gap: 1rem;
+}
+@media (min-width: 768px) {
+  .logo-grid {
+    columns: 3;
+  }
+}
+
+/* ============================================================
+   WORKING ADJUSTMENTS — scratch space for iterative tweaks
+   Move finalized values up into their proper sections above.
+   ============================================================ */
