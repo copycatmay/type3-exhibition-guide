@@ -10,7 +10,7 @@ const exhibitions = [
   { img: 'just-plain-stupid-bg-2.png', accent: '#EBE117' },
 ];
 const exhibit = exhibitions[Math.floor(Math.random() * exhibitions.length)];
-document.documentElement.style.backgroundImage = `url("../img/bg/${exhibit.img}")`;
+document.documentElement.style.setProperty('--bg-image', `url("../img/bg/${exhibit.img}")`);
 document.documentElement.style.setProperty('--color-3', exhibit.accent);
 
 const section = document.querySelector('#sponsors');
