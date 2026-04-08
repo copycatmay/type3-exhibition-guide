@@ -1,0 +1,20 @@
+/* full-viewport bg — image url set by js/exhibit-bg.js */
+html.exhibit-random-bg {
+  background-color: var(--color-6);
+}
+
+/* bg layer fades in after a delay */
+.exhibit-bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.exhibit-bg-layer.bg-visible {
+  opacity: 1;
+}

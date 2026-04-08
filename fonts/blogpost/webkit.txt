@@ -1,0 +1,63 @@
+font-family: "aglet-mono", mono;
+font-weight: 400;
+font-style: normal;
+
+font-family: "aglet-mono", mono;
+font-weight: 600;
+font-style: normal;
+
+--
+font-family: "dico-code-one", mono;
+font-weight: 400;
+font-style: normal;
+
+font-family: "dico-code-one", mono;
+font-weight: 700;
+font-style: normal;
+
+--
+font-family: "gintronic", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+font-family: "gintronic", sans-serif;
+font-weight: 500;
+font-style: normal;
+--
+
+font-family: "array-mono", serif;
+font-weight: 400;
+font-style: normal;
+
+font-family: "array-mono", serif;
+font-weight: 700;
+font-style: normal;
+
+--
+font-family: "cartograph-cf", monospace;
+font-weight: 400;
+font-style: normal;
+
+font-family: "cartograph-cf", monospace;
+font-weight: 600;
+font-style: normal;
+
+--
+font-family: "input-mono", monospace;
+font-weight: 400;
+font-style: normal;
+
+font-family: "input-mono", monospace;
+font-weight: 500;
+font-style: normal;
+
+--
+font-family: "logic-monoscript", mono;
+font-weight: 400;
+font-style: normal;
+
+font-family: "logic-monospace", mono;
+font-weight: 400;
+font-style: normal;
+
+--

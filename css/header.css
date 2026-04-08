@@ -29,6 +29,11 @@ html body {
   padding-top: calc(3.5rem + var(--page-padding));
 }
 
+/* index home: no fixed header chrome until menu opens */
+html body.index-home {
+  padding-top: 0.5rem;
+}
+
 /* ============================================================
    MENU TOGGLE — M / X letterforms
    ============================================================ */
@@ -88,13 +93,11 @@ html body {
 }
 
 /* ============================================================
-   LOGO PLACEHOLDER
+   LOGO
    ============================================================ */
 .header-logo {
-  width: 2rem;
-  height: 2rem;
-  border: 1.2px dashed var(--color-2);
-  border-radius: 4px;
+  width: 6rem;
+  height: 3rem;
 }
 
 .header-logo img {
@@ -160,6 +163,10 @@ html body {
   color: color-mix(in srgb, var(--link-accent, var(--color-3)) 80%, transparent);
 }
 
+.menu-overlay-list a.has-accent {
+  color: var(--link-accent);
+}
+
 /* ============================================================
    SUBMENU — dropdown within overlay
    ============================================================ */
@@ -221,6 +228,10 @@ html body {
 .submenu li {
   border-bottom: none;
   border-top: none;
+}
+
+.submenu li + li {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .submenu a {

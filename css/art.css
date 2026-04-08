@@ -67,6 +67,11 @@
   --color-5: #f16bff;
   --color-6: #ffffff;
 
+  --accent-living-paintings: #BF79B3;
+  --accent-doug: #5A75FA;
+  --accent-norilla: #EB1E16;
+  --accent-just-plain-stupid: #EBE117;
+
   --font-display: "YoungSerif", serif;
   --font-body: akzidenz-grotesk-next, sans-serif;
 
@@ -97,7 +102,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 12pt;
   padding: var(--page-padding);
   max-width: 900px;
   margin: 0 auto;
@@ -189,7 +194,7 @@ table {
 }
 @media (min-width: 768px) {
   table {
-    font-size: 16pt;
+    font-size: 12pt;
   }
 }
 
@@ -212,7 +217,7 @@ thead th:first-child {
    e.g. <th scope="rowgroup" colspan="3">Revenue</th> */
 tbody tr:first-child th[colspan] {
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: 700;
   text-align: left;
   padding: 0.75rem 0 0.25rem;
@@ -239,7 +244,7 @@ tbody th[scope="row"] {
   tbody td,
   tbody th[scope="row"] {
     padding: 0.3rem 0.5rem;
-    font-size: 16pt;
+    font-size: 12pt;
   }
 }
 
@@ -281,7 +286,7 @@ tfoot th {
   tfoot td,
   tfoot th {
     padding: 0.3rem 0.5rem;
-    font-size: 16pt;
+    font-size: 12pt;
   }
 }
 
@@ -305,7 +310,7 @@ tfoot tr.row-total td {
    e.g. <p class="director-signature">Director <span>[insert a signature]</span></p>
    ============================================================ */
 .director-signature {
-  font-size: 16pt;
+  font-size: 12pt;
   margin: 1.5rem 0 1rem;
   color: var(--color-2);
 }
@@ -376,7 +381,7 @@ article > p {
 
 .artwork-description p {
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 12pt;
   line-height: 1.4;
   color: var(--color-1);
   margin-bottom: 0.75rem;
@@ -388,12 +393,12 @@ article > p {
 .artist-bio {
   margin-top: 1.25rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--color-3);
+  border-top: 1px solid var(--page-accent, var(--color-3));
 }
 
 .artist-bio h4 {
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: 700;
   color: var(--color-1);
   margin-bottom: 0.5rem;
@@ -471,12 +476,12 @@ article > p {
 }
 
 /* Use desktop table sizes in modal since it's the expanded view */
-.article-modal-content table { font-size: 16pt; }
+.article-modal-content table { font-size: 12pt; }
 .article-modal-content tbody tr:first-child th[colspan] { font-size: 24pt; padding: 1.25rem 0 0.25rem; }
 .article-modal-content tbody td,
-.article-modal-content tbody th[scope="row"] { font-size: 16pt; padding: 0.3rem 0.5rem; }
+.article-modal-content tbody th[scope="row"] { font-size: 12pt; padding: 0.3rem 0.5rem; }
 .article-modal-content tfoot td,
-.article-modal-content tfoot th { font-size: 16pt; padding: 0.3rem 0.5rem; }
+.article-modal-content tfoot th { font-size: 12pt; padding: 0.3rem 0.5rem; }
 
 /* Let table fill modal width without inner scroll conflict */
 .article-modal-content .table-wrapper {
@@ -487,11 +492,23 @@ article > p {
    HERO IMAGE — full-bleed behind h2
    ============================================================ */
 .hero-img {
+  position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-top: calc(-1 * (3.5rem + var(--page-padding)));
   height: 80vh;
   overflow: hidden;
+}
+
+.hero-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  pointer-events: none;
 }
 
 .hero-img img {
@@ -507,8 +524,20 @@ article > p {
   z-index: 1;
   margin-top: -20vh;
   color: var(--color-6);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  letter-spacing: -0.035em;
 }
+
+/* per-exhibition accent colour — sets --page-accent for inherited use */
+#doug            { --page-accent: var(--accent-doug); }
+#just-plain-stupid { --page-accent: var(--accent-just-plain-stupid); }
+#norilla         { --page-accent: var(--accent-norilla); }
+#living-paintings { --page-accent: var(--accent-living-paintings); }
+
+/* per-exhibition accent colour on h2 */
+#doug > .hero-img + h2            { color: var(--accent-doug); }
+#just-plain-stupid > .hero-img + h2 { color: var(--accent-just-plain-stupid); }
+#norilla > .hero-img + h2         { color: var(--accent-norilla); }
+#living-paintings > .hero-img + h2 { color: var(--accent-living-paintings); }
 
 /* ============================================================
    HEADER — white background when scrolled past hero

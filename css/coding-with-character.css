@@ -1,0 +1,168 @@
+/* ============================================================
+   HEADER — force white background
+   ============================================================ */
+html .site-header {
+  background-color: var(--color-6);
+}
+
+/* ============================================================
+   SELF-HOSTED BLOG POST FONTS
+   ============================================================ */
+@font-face {
+  font-family: "ComicCode";
+  src: url("../fonts/blogpost/Comic Code.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ComicCode";
+  src: url("../fonts/blogpost/Comic Code Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VulfMono";
+  src: url("../fonts/blogpost/VulfMonoDemo-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "VulfMono";
+  src: url("../fonts/blogpost/VulfMonoDemo-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CascadiaCode";
+  src: url("../fonts/blogpost/CascadiaCode-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CascadiaCode";
+  src: url("../fonts/blogpost/CascadiaCode-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IBMPlexMono";
+  src: url("../fonts/blogpost/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "IBMPlexMono";
+  src: url("../fonts/blogpost/IBMPlexMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecursiveMono";
+  src: url("../fonts/blogpost/RecursiveMonoCslSt-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RecursiveMono";
+  src: url("../fonts/blogpost/RecursiveMonoCslSt-Med.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DispatchMono";
+  src: url("../fonts/blogpost/DispatchMono-Regular-Trial.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DispatchMono";
+  src: url("../fonts/blogpost/DispatchMono-Bold-Trial.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arnold";
+  src: url("../fonts/blogpost/ArnoldTestv03.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GTMaruMono";
+  src: url("../fonts/blogpost/GT-Maru-Mono-Regular-Trial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GTMaruMono";
+  src: url("../fonts/blogpost/GT-Maru-Mono-Medium-Trial.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Monoflow";
+  src: url("../fonts/blogpost/monoflow-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* ============================================================
+   ALL ARTICLES — consistent padding + restore borders stripped
+   by the global article + article rule in style.css
+   ============================================================ */
+#coding-with-character article {
+  padding: 1.25rem;
+  border: 1.2px solid var(--color-1);
+  background-color: var(--color-6);
+}
+
+#coding-with-character article + article {
+  border-top: 1.2px solid var(--color-1);
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  #coding-with-character article {
+    padding: 2rem;
+  }
+  #coding-with-character article + article {
+    padding-top: 2rem;
+  }
+}
+
+/* ============================================================
+   FONT ENTRY — apply --entry-font to title + specimen
+   ============================================================ */
+article.font-entry {
+  cursor: default;
+}
+
+.font-entry h4 {
+  font-family: var(--entry-font, monospace);
+  font-size: 24pt;
+  font-weight: 400;
+  color: var(--color-1);
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   FONT SPECIMEN — favourite characters displayed large
+   ============================================================ */
+.font-specimen {
+  font-family: var(--entry-font, monospace);
+  font-size: 36pt;
+  line-height: 1.2;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.1em;
+  background: linear-gradient(to right, var(--color-3), var(--color-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.font-specimen em {
+  font-style: italic;
+}

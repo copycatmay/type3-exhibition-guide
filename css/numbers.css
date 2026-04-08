@@ -93,36 +93,22 @@
 }
 
 html {
-  background: var(--color-6);
+  background-color: var(--color-6);
   color: var(--color-1);
-}
-html::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-image, url("../img/bg/doug-bg-1.png")) center / cover no-repeat;
-  z-index: -1;
 }
 
 body {
   font-family: var(--font-body);
-  font-size: 16pt;
-  padding: var(--page-padding);
-  padding-top: calc(var(--page-padding) + 2rem);
-  max-width: 900px;
-  margin: 0 auto;
-}
-html body {
-  padding-top: calc(var(--page-padding) + 2rem);
+  font-size: 12pt;
+  padding: 0;
+  padding-top: 2rem;
+  margin: 0;
 }
 
 /* ============================================================
-   SECTION LAYOUT — 3-column horizontal swipe
-   Col 0: labels  Col 1: numbers  Col 2: h2
-   Default view: col 2 (h2).
+   SECTION LAYOUT — 2-column horizontal swipe
+   Col 0: h2 heading   Col 1: data (tables)
+   Default view: col 0 (h2).
    ============================================================ */
 #exhibitions-by-the-numbers {
   position: relative;
@@ -131,122 +117,47 @@ html body {
 }
 
 /* ============================================================
-   SWIPE TRACK — flex row: data-panel (2 cols) + h2-panel (1 col)
-   Created dynamically by layout-b.js
+   SWIPE TRACK — flex row: h2-panel (col 0) + data-panel (col 1)
    ============================================================ */
 .swipe-track {
   display: flex;
-  width: 300%;
+  width: 200%;
   min-height: 100svh;
-  transform: translateX(-66.667%);
+  transform: translateX(-50%);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
 }
 
 /* ============================================================
-   DATA PANEL — spans cols 0-1 (2 section-widths)
-   Contains original articles with wide table-layout
+   SWIPE PANEL — shared flex-item base
    ============================================================ */
-.data-panel {
-  width: 66.667%;
+.swipe-panel {
+  width: 50%;
   flex-shrink: 0;
   box-sizing: border-box;
+}
+
+/* ============================================================
+   H2 PANEL — col 0, vertical heading
+   ============================================================ */
+.h2-panel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+  position: relative;
+}
+
+/* ============================================================
+   DATA PANEL — col 1, contains articles with full tables
+   ============================================================ */
+.data-panel {
   padding: 2rem 1rem 1rem;
 }
 @media (min-width: 768px) {
   .data-panel {
     padding: 4rem 2rem 2rem;
   }
-}
-
-/* Tables span 2 section-widths: labels left, numbers right */
-.data-panel .table-wrapper {
-  overflow: visible;
-}
-
-.data-panel table {
-  table-layout: fixed;
-}
-
-/* First column (labels) = left viewport-width */
-.data-panel thead th:first-child,
-.data-panel tbody td:first-child,
-.data-panel tbody th[scope="row"],
-.data-panel tfoot td:first-child,
-.data-panel tfoot th[scope="row"] {
-  width: 50%;
-}
-
-/* Year column headers — "2023", "2022" in data-panel, 12pt */
-.data-panel thead th:not(:first-child) {
-  font-size: 12pt;
-}
-
-/* Number cells — "$22,553", "$4,079", "($1,998)" etc.
-   data-panel override: 16pt/24pt */
-.data-panel tbody td:not(:first-child),
-.data-panel tfoot td:not(:first-child) {
-  font-size: 16pt;
-  padding: 0.2rem 0;
-}
-@media (min-width: 768px) {
-  .data-panel tbody td:not(:first-child),
-  .data-panel tfoot td:not(:first-child) {
-    font-size: 24pt;
-    padding: 0.3rem 0;
-  }
-}
-
-/* Labels column — "Government grants", "Administration", "Current assets" etc.
-   data-panel override: 16pt/24pt, flush left */
-.data-panel tbody td:first-child {
-  font-size: 16pt;
-  white-space: normal;
-  padding-left: 0;
-  padding-right: 1rem;
-}
-.data-panel tbody th[scope="row"],
-.data-panel tfoot th[scope="row"] {
-  font-size: 16pt;
-  padding-left: 1rem;
-}
-.data-panel tfoot td:first-child {
-  padding-left: 0;
-}
-@media (min-width: 768px) {
-  .data-panel tbody td:first-child {
-    font-size: 24pt;
-  }
-  .data-panel tbody th[scope="row"],
-  .data-panel tfoot th[scope="row"] {
-    font-size: 24pt;
-    padding-left: 1.5rem;
-  }
-}
-
-/* Align all thead cells flush left/right */
-.data-panel thead th {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* ============================================================
-   H2 PANEL — col 2, vertical heading
-   "Numbers" h2, vertical-rl, YoungSerif 240pt/92pt
-   e.g. <h2>Numbers</h2> inside .h2-panel
-   ============================================================ */
-.swipe-panel {
-  flex-shrink: 0;
-  box-sizing: border-box;
-}
-
-.h2-panel {
-  width: 33.333%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 20vh;
-  position: relative;
 }
 
 #exhibitions-by-the-numbers h2 {
@@ -267,18 +178,6 @@ html body {
     font-size: 92pt;
   }
 }
-
-/* ============================================================
-   PINNED HEADERS — h3, meta, row-group headers
-   Stay in flow (correct vertical spacing), counter-translated
-   by JS so they stay at viewport left edge when swiping.
-   ============================================================ */
-.pinned-header {
-  position: relative;
-  z-index: 2;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 
 /* ============================================================
    SWIPE AFFORDANCE — animated chevron + "swipe" label
@@ -326,7 +225,7 @@ html body {
 }
 
 /* ============================================================
-   SWIPE DOTS — fixed pagination indicator (3 dots)
+   SWIPE DOTS — fixed pagination indicator (2 dots)
    ============================================================ */
 .swipe-dots {
   position: fixed;
@@ -411,21 +310,20 @@ article > p {
    e.g. <div class="table-wrapper">, <table>, <thead>
    ============================================================ */
 .table-wrapper {
-  overflow-x: auto;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  -webkit-overflow-scrolling: touch;
 }
 
 table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
   font-family: var(--font-body);
   font-size: 9.5pt;
 }
 @media (min-width: 768px) {
   table {
-    font-size: 16pt;
+    font-size: 12pt;
   }
 }
 
@@ -458,12 +356,13 @@ thead th:first-child {
         <th scope="rowgroup" colspan="3">Expenses</th> */
 tbody tr:first-child th[colspan] {
   font-family: var(--font-body);
-  font-size: 16pt;
+  font-size: 12pt;
   font-weight: 400;
   text-align: left;
   padding: 0.75rem 0 0.25rem 1rem;
   color: var(--color-1);
   border-bottom: 1px solid var(--color-3);
+  text-transform: uppercase;
 }
 @media (min-width: 768px) {
   tbody tr:first-child th[colspan] {
@@ -486,11 +385,17 @@ tbody th[scope="row"] {
   font-weight: 400;
   font-family: var(--font-condensed);
 }
+tbody td:not(:first-child) {
+  font-size: 12pt;
+}
 @media (min-width: 768px) {
   tbody td,
   tbody th[scope="row"] {
     padding: 0.3rem 0.5rem;
-    font-size: 16pt;
+    font-size: 12pt;
+  }
+  tbody td:not(:first-child) {
+    font-size: 24pt;
   }
 }
 
@@ -501,7 +406,6 @@ tbody th[scope="row"] {
 
 tbody td {
   text-align: right;
-  white-space: nowrap;
 }
 
 /* Alternating row tint
@@ -530,21 +434,27 @@ tr.row-total td {
 /* tfoot rows — net results below main tbody
    "Remeasurement related to pension plan", "Net surplus, beginning of year"
    "Cumulative net surplus (deficit)", "($5,597)", "$1,732"
-   akzidenz 9.5pt/16pt, weight 400
+   akzidenz 7pt / 9.5pt, weight 400
    e.g. <tfoot><tr><td>Remeasurement related to pension plan</td>...</tr></tfoot> */
 tfoot td,
 tfoot th {
   padding: 0.2rem 0.35rem;
-  font-size: 16pt;
+  font-size: 9.5pt;
   font-weight: 400;
   font-family: var(--font-condensed);
   vertical-align: top;
+}
+tfoot td:not(:first-child) {
+  font-size: 12pt;
 }
 @media (min-width: 768px) {
   tfoot td,
   tfoot th {
     padding: 0.3rem 0.5rem;
-    font-size: 16pt;
+    font-size: 12pt;
+  }
+  tfoot td:not(:first-child) {
+    font-size: 24pt;
   }
 }
 
@@ -554,13 +464,25 @@ tfoot th[scope="row"] {
 
 tfoot td {
   text-align: right;
-  white-space: nowrap;
 }
 
 tfoot tr.row-total th,
 tfoot tr.row-total td {
+  font-size: 9.5pt;
   font-weight: 700;
   border-top: 1px solid var(--color-1);
+}
+tfoot tr.row-total td:not(:first-child) {
+  font-size: 12pt;
+}
+@media (min-width: 768px) {
+  tfoot tr.row-total th,
+  tfoot tr.row-total td {
+    font-size: 12pt;
+  }
+  tfoot tr.row-total td:not(:first-child) {
+    font-size: 24pt;
+  }
 }
 
 /* ============================================================
@@ -570,7 +492,7 @@ tfoot tr.row-total td {
    e.g. <p class="director-signature">Director <span>[insert a signature]</span></p>
    ============================================================ */
 .director-signature {
-  font-size: 16pt;
+  font-size: 12pt;
   margin: 1.5rem 0 1rem;
   color: var(--color-2);
 }
@@ -595,7 +517,7 @@ tfoot tr.row-total td {
   border-top: 1px solid var(--color-2);
   padding-top: 0.75rem;
   margin-top: 0.5rem;
-  max-width: 46%;
+  max-width: 100%;
 }
 
 .notes li + li {
@@ -682,7 +604,7 @@ tfoot tr.row-total td {
 
 /* Use desktop table sizes in modal since it's the expanded view */
 .article-modal-content table {
-  font-size: 16pt;
+  font-size: 12pt;
 }
 .article-modal-content tbody tr:first-child th[colspan] {
   font-size: 24pt;
@@ -690,12 +612,12 @@ tfoot tr.row-total td {
 }
 .article-modal-content tbody td,
 .article-modal-content tbody th[scope="row"] {
-  font-size: 16pt;
+  font-size: 12pt;
   padding: 0.3rem 0.5rem;
 }
 .article-modal-content tfoot td,
 .article-modal-content tfoot th {
-  font-size: 16pt;
+  font-size: 12pt;
   padding: 0.3rem 0.5rem;
 }
 

@@ -1,0 +1,128 @@
+/* ============================================================
+   INDEX — exhibition-style column, content anchored low
+   ============================================================ */
+#main-menu {
+  min-height: calc(100svh - 2 * var(--page-padding));
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#main-menu > article {
+  margin-top: auto;
+  cursor: default;
+}
+
+#guide-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* logo inside white card */
+#guide-home .home-logo {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.index-open-header {
+  --index-btn-stroke: color-mix(in srgb, var(--color-3) 42%, var(--color-1));
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  background-color: color-mix(in srgb, var(--color-3) 32%, var(--color-6));
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--color-3) 55%, var(--color-1));
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.1s ease,
+    transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.index-open-header-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+.index-open-header-ring-rect {
+  fill: none;
+  stroke: var(--index-btn-stroke);
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0.01 6.5;
+  stroke-dashoffset: 0;
+  vector-effect: non-scaling-stroke;
+  animation: index-open-header-dash 1.61s linear infinite;
+}
+
+@keyframes index-open-header-dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-open-header-ring-rect {
+    animation: none;
+    stroke-dasharray: 2 5;
+    stroke-dashoffset: 0;
+  }
+}
+
+.index-open-header:hover {
+  background-color: color-mix(in srgb, var(--color-3) 42%, var(--color-6));
+}
+
+.index-open-header:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 color-mix(in srgb, var(--color-3) 40%, var(--color-1));
+  background-color: color-mix(in srgb, var(--color-3) 48%, var(--color-6));
+}
+
+.index-open-header:focus-visible {
+  outline: 2px solid var(--index-btn-stroke);
+  outline-offset: 3px;
+}
+
+/* sized under hero title — akzidenz 36pt, all caps */
+.index-open-header-label {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 36pt;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-1);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .index-open-header {
+    padding: 0.5rem 0.9rem;
+  }
+}

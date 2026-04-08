@@ -3,70 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donation Card — TYPE3 2024: AI/AS24</title>
+    <title>Donation Card — TYPE3 2026: AI/AS26</title>
     <link rel="stylesheet" href="https://use.typekit.net/tlc1wya.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/header.css" />
   </head>
   <body>
-    <header class="site-header">
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-        <span class="menu-toggle-letter menu-toggle-m">M</span>
-        <span class="menu-toggle-letter menu-toggle-x">X</span>
-      </button>
-      <div class="header-logo"></div>
-    </header>
-
-    <nav class="menu-overlay" aria-hidden="true">
-      <ul class="menu-overlay-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="exhibition-intro.html">Intro</a></li>
-        <li class="has-submenu">
-          <button class="submenu-toggle">Exhibitions</button>
-          <ul class="submenu">
-            <li><a href="just-plain-stupid.html">just plAIn stupid</a></li>
-            <li><a href="doug.html">D.O.U.G.</a></li>
-            <li><a href="norilla.html">NoRILLA</a></li>
-            <li><a href="living-paintings.html">living pAIntings</a></li>
-          </ul>
-        </li>
-        <li><a href="exhibitions-by-the-numbers.html">by the Numbers</a></li>
-        <li class="has-submenu">
-          <button class="submenu-toggle">Credits</button>
-          <ul class="submenu">
-            <li><a href="sponsors.html">Sponsors</a></li>
-            <li><a href="staff-credits.html">Staff</a></li>
-            <li><a href="thank-you.html">Thank You</a></li>
-          </ul>
-        </li>
-        <li><a href="coding-with-character.html">Coding with Character</a></li>
-        <li><a href="donation-card.html">Donations</a></li>
-      </ul>
-    </nav>
+    <script src="js/menu-include.js"></script>
 
     <section id="donation-card">
       <h2>Donation Card</h2>
+      <p class="donation-appeal">
+        Your support helps bring bold, experimental art to life. Every
+        contribution sustains the exhibitions, artists, and programs that make
+        aftermodern.gallery possible.
+      </p>
 
-      <article>
-        <form class="donation-form">
-          <div class="form-group">
-            <label for="first-name">First Name *</label>
-            <input type="text" id="first-name" name="first-name" required />
+      <form class="donation-form">
+        <!-- 1. Amount selection -->
+        <fieldset class="donation-amounts">
+          <legend>Choose an Amount</legend>
+          <div class="amount-options">
+            <label class="amount-chip">
+              <input type="radio" name="amount" value="20" />
+              <span>$20</span>
+            </label>
+            <label class="amount-chip">
+              <input type="radio" name="amount" value="50" />
+              <span>$50</span>
+            </label>
+            <label class="amount-chip">
+              <input type="radio" name="amount" value="75" />
+              <span>$75</span>
+            </label>
+            <label class="amount-chip">
+              <input type="radio" name="amount" value="150" />
+              <span>$150</span>
+            </label>
+            <label class="amount-chip amount-chip--other">
+              <input type="radio" name="amount" value="other" />
+              <span>Other</span>
+              <input
+                type="number"
+                id="other-amount"
+                name="other-amount"
+                placeholder="$"
+                aria-label="Custom donation amount"
+              />
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 2. Contact details -->
+        <fieldset class="donation-contact">
+          <legend>Your Details</legend>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="first-name" required />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name *</label>
+              <input type="text" id="last-name" name="last-name" required />
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="last-name">Last Name *</label>
-            <input type="text" id="last-name" name="last-name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="organization">Organization</label>
-            <input type="text" id="organization" name="organization" />
-          </div>
-
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="organization">Organization</label>
+              <input type="text" id="organization" name="organization" />
+            </div>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" id="title" name="title" />
+            </div>
           </div>
 
           <div class="form-group">
@@ -83,48 +94,38 @@
             <label for="email">Email *</label>
             <input type="email" id="email" name="email" required />
           </div>
+        </fieldset>
+
+        <!-- 3. Preferences -->
+        <fieldset class="donation-preferences">
+          <legend>Preferences</legend>
 
           <div class="form-group form-group--checkbox">
             <input type="checkbox" id="anonymous" name="anonymous" />
             <label for="anonymous"
-              >Check this box if you wish to remain anonymous</label
+              >I wish to remain anonymous</label
             >
           </div>
-
-          <fieldset class="donation-amounts">
-            <legend>Amount Enclosed</legend>
-            <div class="amount-options">
-              <label><input type="radio" name="amount" value="20" /> $20</label>
-              <label><input type="radio" name="amount" value="50" /> $50</label>
-              <label><input type="radio" name="amount" value="75" /> $75</label>
-              <label
-                ><input type="radio" name="amount" value="150" /> $150</label
-              >
-              <label>
-                <input type="radio" name="amount" value="other" /> Other
-                <input
-                  type="number"
-                  id="other-amount"
-                  name="other-amount"
-                  placeholder="$"
-                />
-              </label>
-            </div>
-          </fieldset>
 
           <div class="form-group form-group--checkbox">
             <input type="checkbox" id="contact-donate" name="contact-donate" />
             <label for="contact-donate"
-              >Amount to Donate &mdash; selecting this means we will contact you
-              for payment information</label
+              >Contact me for payment information</label
             >
           </div>
+        </fieldset>
 
-          <p class="donate-online">
-            Donate online at www.type32023exhibitions.org
-          </p>
-        </form>
-      </article>
+        <!-- 4. Submit -->
+        <button type="submit" class="donation-submit">Donate</button>
+
+        <!-- 5. Online alternative -->
+        <p class="donate-online">
+          Or donate online at
+          <a href="https://www.type32023exhibitions.org"
+            >www.type32023exhibitions.org</a
+          >
+        </p>
+      </form>
     </section>
     <script src="js/header.js"></script>
   </body>

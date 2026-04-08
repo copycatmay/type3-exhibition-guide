@@ -1,14 +1,13 @@
 
-TYPE3 2024: AI/AS24
+TYPE3 2026: AI/AS26
 Staff
 Gallery Curator: Anthony Campea
-Design Team: [insert the names and “titles” of each person on your team]
+Design Team: Daniel Wang, Jasper So, Ryder Davis-Sydor
 Copy Writing: Brittney Filek-Gibson
-Featured Artists: [insert the names and titles of the artists of each artist for your exhibits]
+Featured Artists: Refik Anadol, Sougwen Chung, Dr. Nesra Yannier
 Location: aftermodern.gallery
 
-
-
+ 
 Exhibition Sponsors
 Tier 1 Sponsors ($50,000+) [logos required for Thank You page]
 OCAD University (undisclosed), aftermodern.lab inc. (undisclosed), Canadian Council of the Arts (undisclosed)
@@ -25,15 +24,13 @@ Hunt Stromberg, Grant, Dawn Day, Newt Lisard, Wilma McClatchie, Rick Blaine, Bla
 Tier 6 Sponsors (Under $500)
 Antoni Gaudi, Saul Bass, James Dyson, Marcel Breuer, Charles and Ray Eames, Philippe Starck, Ludwig Mies van der Rohe, Aleksandr Rodchenko, Dieter Rams, Le Corbusier, Walter Gropius, Sir Jonathan Ive, Louis Kahn, David Adjaye, Thomas Heatherwick, Daniel Libeskind, Bjarke Ingels, Elizabeth Scofidio, Tadao Ando, Craig Edward Dykers and Kjetil Trædal Thorsen
 
-
-
-TYPE3 2024: AI/AS24
+ 
+TYPE3 2026: AI/AS26
 Robots. Coding. Light. Movement. And, of course, Typography! Surround yourself with a brilliant expression of typographic form and space; where art and technology work together to become instructional, cultural, and educational.
-In our current world, nothing is permanent. Robotics, automation, AI (artificial intelligence), multiple realities, and worldwide networks are innovations impacting the way we work, how we relate to one another, and how we play and express our creativity. At AI/AS24, you can experience this new and ever-changing world through emerging technologies visually expressed through typographic excellence. 
-With four installations worldwide, AI/AS24 will showcase the evolution of play and provide an environment for growth, inspiration, learning, and knowledge. See the true creative potential of young minds as they explore a new world of AI and consider crucial questions.
+In our current world, nothing is permanent. Robotics, automation, AI (artificial intelligence), multiple realities, and worldwide networks are innovations impacting the way we work, how we relate to one another, and how we play and express our creativity. At AI/AS26, you can experience this new and ever-changing world through emerging technologies visually expressed through typographic excellence. 
+With four installations worldwide, AI/AS26 will showcase the evolution of play and provide an environment for growth, inspiration, learning, and knowledge. See the true creative potential of young minds as they explore a new world of AI and consider crucial questions.
 
-
-
+ 
 Art in the Exhibition [you are responsible for sourcing images for each of the exhibition’s pieces below]
 Just plAIn stupid
 Various Creators
@@ -48,18 +45,18 @@ Sougwen Chung, MIT
 USA
 All Ages
 
-In D.O.U.G._1 (2015), a small robotic arm uses a mounted camera with computer vision to mimic the artist’s hand drawing gestures and synchronously draw along her. D.O.U.G._2 (2017) is an exploration of robotic memory and machine learning as robotic arms generate sketches based on neural nets trained on Sougwen’s drawings gestures. Now, you can draw with D.O.U.G._4.
+In D.O.U.G._1 (2015), a small robotic arm uses a mounted camera with computer vision to mimic the artist’s hand drawing gestures and synchronously draw along her. D.O.U.G._2 (2017) is an exploration of robotic memory and machine learning as robotic arms generate sketches based on neural nets trained on Sougwen’s drawings gestures. Now, you can draw with D.O.U.G._4.
 
-Artist Bio: Sougwen ?? Chung is a Chinese-Canadian artist and researcher, widely considered a pioneer in the field of human-machine collaboration – exploring the mark-made-by-hand and the mark-made-by-machine as an approach to understanding the dynamics of humans and systems. Sougwen’s work MEMORY (Drawing Operations Unit: Generation 2) is part of the permanent collection of the Victoria and Albert museum, and is the first AI model to be collected by a major institution. Recently, Chung’s was recognized as a Cultural Leader at the World Economic Forum and named one of TIME's 100 Most Influential People in AI.
+Artist Bio: Sougwen *CN* Chung is a Chinese-Canadian artist and researcher, widely considered a pioneer in the field of human-machine collaboration – exploring the mark-made-by-hand and the mark-made-by-machine as an approach to understanding the dynamics of humans and systems. Sougwen’s work MEMORY (Drawing Operations Unit: Generation 2) is part of the permanent collection of the Victoria and Albert museum, and is the first AI model to be collected by a major institution. Recently, Chung’s was recognized as a Cultural Leader at the World Economic Forum and named one of TIME's 100 Most Influential People in AI.
 
 A former TED Speaker and researcher at MIT Media Lab, Chung has spoken at international conferences including the United Nations, Geneva; World Economic Forum, China; Oxford University; SIGGRAPH Conference, Vancouver; Global Art Forum, Singapore; World Science Festival, New York; Cannes Lions, Cannes; WSJ's Future of Everything Conference, New York; Tribeca Film Festival Interactive, New York; House of Beautiful Business, Lisbon; OFFF, Barcelona; FITC, Tokyo; Internet Dargana, Stockholm; SXSW, Austin; The Art Directors Club, New York.
 
-Chung has been selected for excellence in the Arts & Sciences as Woman of the Year in Monaco, received the Lumen Prize for Art in Technology, was an inaugural E.A.T. Artist in Residence in partnership with New Museum and Bell Labs, was awarded a commission for project Omnia per Omnia, was the Japan Media Arts recipient of the Excellence Award for Drawing Operations, and was selected as one of the Top 20 New Visual Artists by Print Magazine. 
+Chung has been selected for excellence in the Arts & Sciences as Woman of the Year in Monaco, received the Lumen Prize for Art in Technology, was an inaugural E.A.T. Artist in Residence in partnership with New Museum and Bell Labs, was awarded a commission for project Omnia per Omnia, was the Japan Media Arts recipient of the Excellence Award for Drawing Operations, and was selected as one of the Top 20 New Visual Artists by Print Magazine. 
 
 Additionally, Sougwen Chung has been awarded Artist in Residence positions at Google, Studio Wayne McGregor, Laurenz Haus Basel, Eyebeam, Japan Media Arts, and Pier 9 Autodesk.
 Chung is the founder of SCILICET, an experimental studio based in London.
 
-Team: Sougwen ?? Chung
+Team: Sougwen *CN* Chung
 
 
 NoRILLA
@@ -77,21 +74,20 @@ Refik Anadol
 Türkiye
 Canadian Premiere
 Ages 4+
-Living Paintings, Refik Anadol’s first major solo exhibition in Los Angeles will open at Jeffrey Deitch on February 14, 2023. The exhibition will showcase the complete series of Anadol’s artworks that are based on California-related datasets, and explore his fascination with the environments – physical, public, virtual, and multidimensional – that play an instrumental role in shaping his artistic vision. Merging collective memories of urban life and nature with groundbreaking machine learning and visualization technologies, Living Paintings invites a poetic and futuristic contemplation of purposeful human-machine collaborations.
+Living Paintings, Refik Anadol’s first major solo exhibition in Los Angeles will open at Jeffrey Deitch on February 14, 2023. The exhibition will showcase the complete series of Anadol’s artworks that are based on California-related datasets, and explore his fascination with the environments – physical, public, virtual, and multidimensional – that play an instrumental role in shaping his artistic vision. Merging collective memories of urban life and nature with groundbreaking machine learning and visualization technologies, Living Paintings invites a poetic and futuristic contemplation of purposeful human-machine collaborations.
 Artist Bio: Refik Anadol (b. 1985, Istanbul, Turkey) is an internationally renowned media artist, director, and pioneer in the aesthetics of machine intelligence. He currently resides in Los Angeles, California, where he owns and operates Refik Anadol Studio and RAS LAB, the Studio’s research practice centered around discovering and developing trailblazing approaches to data narratives. Anadol is also teaching at UCLA’s Department of Design Media Arts from which he obtained his Master of Fine Arts.
 
 Anadol’s body of work addresses the challenges, and the possibilities, that ubiquitous computing has imposed on humanity, and what it means to be a human in the age of AI. He explores how the perception and experience of time and space are radically changing now that machines dominate our everyday lives. Anadol is intrigued by the ways in which the digital age and machine intelligence allow for a new aesthetic technique to create enriched immersive environments that offer a dynamic perception of space.
 
 By proposing the possibility of “post-digital architecture,” Anadol invites his audience to imagine alternative realities by redefining the functionalities of both interior and exterior architectural elements. He tackles this by moving beyond the integration of media into built forms and translating the logic of a new media technology into art and design.
-
-
+ 
 Exhibitions by the Numbers
 Statement of Operations 
 
 Year ended March 31 
 (reported in thousands of dollars) 
 
-	2023	2022 
+	2025	2024 
 Revenue 
 Government grants 	$22,553 	$22,551
 Admissions, program income 	$4,079 	$6,632 
@@ -136,18 +132,18 @@ Balance Sheet
 As of March 31 
 (reported in thousands of dollars) 
 
-	2023	2022 
+	2024	2025 
 Assets 
 Current assets 	$16,694 	$20,366 
-Accrued pension asset 	0 	782 
-Net capital assets 	224,256 	227,684 
+Accrued pension asset 	$0 	$782 
+Net capital assets 	$224,256 	$227,684 
 Total Assets 	$240,950 	$248,832 
 
 Liabilities
 Current liabilities 	$25,421 	$25,550 
-Long-term debt 	7,715 	5,467 
-Accrued pension liability 	4,417 	0 
-Deferred capital contributions 	208,994 	16,083 
+Long-term debt 	$7,715 	$5,467 
+Accrued pension liability 	$4,417 	$0 
+Deferred capital contributions 	$208,994 	$16,083 
 Total Liabilities 	$246,547 	$247,100 
 Cumulative net surplus (deficit) 	($5,597) 	$1,732 
 Total Liabilities and Net Surplus 	$240,950 	$248,832 
@@ -155,8 +151,7 @@ Total Liabilities and Net Surplus 	$240,950 	$248,832
 Notes 
 1. Works of Art are included in net capital assets at the nominal value of $1.
 
-
-
+ 
 Donation Card Copy
 
 *First Name
@@ -171,8 +166,7 @@ Check this box if you wish to remain anonymous
 Amount Enclosed	$20	$50	$75	$150	Other
 Amount to Donate – selecting this means we will contact you for payment information
 Donate online at www.type32023exhibitions.org
-
-
+ 
 
 Coding with Character
 If you spend all day looking at code, letters, and characters—why not make it fun?
@@ -294,67 +288,26 @@ The final typeface in this post has an interesting goal: “To significantly impro
 Obviously, monospace fonts are defined by their fixed width, but Monoflow repositions characters inside of those fixed widths to make the “color” of your text more visually appealing. It is an interesting idea and I hope more people play with this idea in the future.
 Favorite Characters: l, r, g, 4, italic x, y, and z
 
-Honorable Mentions
-There are seriously so many good monospace fonts out there that I couldn’t feature in this list. So, if none of the above suit your fancy, give these a look and I hope you find something that works for you.
-Overpass Mono from Delve Fonts
-Pitch from Klim Type
-Covik Sans Mono from OH no Type Co
-Codelia from Tabular Type
-Coordinates from Process Type
-Recipient from Process Type
-Pentameter from Occupant Fonts
-GT Flexa Mono from Grilli Type
-League Mono from League of Moveable Type
-Adelle Mono from Type Together
-Matter Mono from Displaay
-Triplicate from Matthew Butterick
-JetBrains Mono from Jet Brains
-Atlas Typewriter from Commercial Type
-Lab Grotesque Mono from Letters from Sweden
-MD IO from Mass-Driver
-Valentine from Lineto
-Ellograph from Connary Fagen
-Mabry Mono from Colophon Foundry
-Garton from Colophon Foundry
-System 85 from Colophon Foundry
-Italian Plate No. 1 Mono from Play Type
-Syke Mono from The Northern Block
-Nitti from Bold Monday
-Simplon Mono from Swiss Typefaces
-Ballinger Mono from Signal Foundry
-Iosevka from Belleve Invis
-Anonymous Pro from Mark Simonson
-Hack from Source Foundry
-Victor Mono from Rune Bjørnerås
-Fira Mono from Carrois Apostrophe
-Jornada Mono from DSType
-Xanti Typewriter from CAST Foundry
-Azo Mono from R-Typography
-NT Bau Mono from Nodo Type Foundry
-Zeitung Mono from Underware
-Diurnal Mono from Typotheque
-Bodoni Egyptian Mono from Shinntype
-Gräbenbach Mono from Camelot
-Martian Mono from Evil Martians
-Elma Mono from Philipp Neumeyer
-Karl Mono from Source Type
-Adapter Mono PE from Rosetta Type
-Dossier from Tabular Type
 
-And if you want to get really wild, check out these monos that push the boundaries of what is “usable” for a monospaced font.
 
-Sarcastic Robot from Chank Fonts
-Capibara Mono from Bold Monday
-Gridlite from Rosetta Type
-The Future Mono from Klim Type
-Show Me the Mono from Mota Italic
-Panoptica from Shinntype
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 Thank You!
 
-Type3 2024 Exhibitions would like to provide a special thanks to the following companies. Without the support of these institutions, our work would not be possible.
+TYPE3 2026 Exhibitions would like to provide a special thanks to the following companies. Without the support of these institutions, our work would not be possible.
 
 Include each of the sponsors described above as “logos required for Thank You page”
 

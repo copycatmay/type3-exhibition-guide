@@ -1,7 +1,7 @@
-# TYPE3 2024: AI/AS24 — Exhibition Guide Website
+# TYPE3 2026: AI/AS26 — Exhibition Guide Website
 
 ## Project Overview
-A website serving as an exhibition guide for the TYPE3 2024: AI/AS24 exhibition at aftermodern.gallery. All copy lives in `Guide Copy.txt` (or `Guide Copy.docx`/`Guide Copy.rtf`).
+A website serving as an exhibition guide for the TYPE3 2026: AI/AS26 exhibition at aftermodern.gallery. All copy lives in `Guide Copy.txt` (or `Guide Copy.docx`/`Guide Copy.rtf`).
 
 **Build order (as instructed):**
 1. [DONE] Exhibitions by the Numbers → `exhibitions-by-the-numbers.html`
@@ -63,7 +63,8 @@ CSS font-family name: `"YoungSerif"` — loaded via `@font-face` in `style.css`
 | Young Serif | 40pt | Sub-section headings |
 | Akzidenz | 36pt | Mid-level headings |
 | Akzidenz | 24pt | Minor headings / emphasis |
-| Akzidenz | 16pt | Body text, table data |
+| Akzidenz | 16pt | Body text, table data — **deprecated in favour of 12pt** |
+| Akzidenz | 12pt | Body text, table data — **exception, approved 2026-04-07** |
 | Akzidenz | 9.5pt | Supporting/contextual text, captions |
 | Akzidenz | 7pt | Footnotes |
 
@@ -133,23 +134,27 @@ Define in `:root` at the top of each stylesheet:
 ---
 
 ## Content Source
-All copy lives in: `Guide Copy.txt`
+All copy lives in: `Guide Copy.txt` (under `src/Guide Copy.txt` in this repo).
 
-### Section reference (line numbers in Guide Copy.txt):
-- Staff/Credits: lines 2–8
-- Exhibition Sponsors (Tiers 1–6): lines 12–26
-- Exhibition Intro: lines 30–33
-- Art in the Exhibition: lines 37–86
-  - Just plAIn stupid: lines 38–44
-  - DOUG: lines 46–63
-  - NoRILLA: lines 65–73
-  - Living pAIntings: lines 75–86
-- Exhibitions by the Numbers: lines 88–156
-  - Statement of Operations: lines 89–131
-  - Balance Sheet: lines 134–157
-- Donation Card: lines 160–173
-- Coding with Character article: lines 177–351
-- Thank You page: lines 355–360
+### Web vs source copy
+- **`*CN*` in Guide Copy** — On `doug.html`, replace with **愫君** (Sougwen Chung’s name as used on the site).
+- **David Carson (Tier 2)** — On `sponsors.html`, list **$45,000** so the amount stays within the Tier 2 band ($10,000–$49,999). If `Guide Copy.txt` shows a different figure, the site amount takes precedence unless the copy file is corrected.
+
+### Section reference (line numbers in `src/Guide Copy.txt`)
+- Staff/Credits: lines 3–8
+- Exhibition Sponsors (Tiers 1–6): lines 11–25
+- Exhibition Intro: lines 28–31
+- Art in the Exhibition: lines 34–82
+  - Just plAIn stupid: lines 35–41
+  - DOUG: lines 43–59
+  - NoRILLA: lines 62–69
+  - Living pAIntings: lines 72–82
+- Exhibitions by the Numbers: lines 84–152
+  - Statement of Operations: lines 85–127
+  - Balance Sheet: lines 130–152
+- Donation Card: lines 155–168
+- Coding with Character article: lines 171–289
+- Thank You page: lines 308–312
 
 ---
 
@@ -173,16 +178,18 @@ All copy lives in: `Guide Copy.txt`
 | `css/numbers.css` | Exhibitions by the Numbers stylesheet |
 | `css/sponsors.css` | Sponsors page stylesheet |
 | `css/header.css` | Shared header + menu overlay styles |
+| `js/menu-include.js` | Single source of truth for header + menu overlay markup (injected via JS) |
 | `js/header.js` | Header scroll behaviour + menu toggle |
 | `js/numbers.js` | Numbers page swipe/interaction logic |
 | `js/sponsors.js` | Sponsors page swipe/interaction logic |
 | `fonts/` | Young Serif OTF files (Light, Regular, Medium, Bold + italics) |
 | `img/` | Background images (`bg1–4.png`), sponsor logo lockup (`lockup.svg`) |
-| `src/` | Source copy (`Guide Copy.txt`, `Guide Copy.docx`, `hierarchy.txt`) |
+| `src/` | Source copy (`Guide Copy.txt`, `Guide Copy.docx`, `hierarchy.txt`); authoritative line references are for `src/Guide Copy.txt` |
 | `CLAUDE.md` | This file |
 
 ## Current Status
-- `exhibitions-by-the-numbers.html` — HTML + CSS complete, expand modal working
+- Exhibition identity and page titles use **TYPE3 2026: AI/AS26**; body copy is kept in sync with `src/Guide Copy.txt` (with the web exceptions noted above).
+- `exhibitions-by-the-numbers.html` — HTML + CSS complete, expand modal working; statement columns **2025 / 2024**, balance sheet **2024 / 2025** per copy
 - `sponsors.html` — HTML + CSS complete, 2-column swipe layout with logo lockup
-- All other section HTML pages — structure complete, sharing `style.css`, no section-specific CSS yet
+- All other section HTML pages — structure complete; art pages use `css/art.css`
 - `index.html` — main menu with links to all sections

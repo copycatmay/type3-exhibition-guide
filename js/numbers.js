@@ -1,34 +1,21 @@
-// ── Random exhibition background + accent colour on each load ──
-const exhibitions = [
-  { img: 'doug-bg-1.png',              accent: '#5A75FA' },
-  { img: 'doug-bg-2.png',              accent: '#5A75FA' },
-  { img: 'living-paintings-bg-1.png',   accent: '#BF79B3' },
-  { img: 'living-paintings-bg-2.png',   accent: '#BF79B3' },
-  { img: 'norilla-bg-1.png',           accent: '#EB1E16' },
-  { img: 'norilla-bg-2.png',           accent: '#EB1E16' },
-  { img: 'just-plain-stupid-bg-1.png', accent: '#EBE117' },
-  { img: 'just-plain-stupid-bg-2.png', accent: '#EBE117' },
-];
-const exhibit = exhibitions[Math.floor(Math.random() * exhibitions.length)];
-document.documentElement.style.setProperty('--bg-image', `url("../img/bg/${exhibit.img}")`);
-document.documentElement.style.setProperty('--color-3', exhibit.accent);
+// background + accent: js/exhibit-bg.js (loaded before this file)
 
-const section = document.querySelector('#exhibitions-by-the-numbers');
-const h2 = section.querySelector('h2');
-const articles = [...section.querySelectorAll('article')];
+let section = document.querySelector('#exhibitions-by-the-numbers');
+let h2 = section.querySelector('h2');
+let articles = [...section.querySelectorAll('article')];
 
-// ── Build track: data-panel (spans cols 0-1) + h2-panel (col 2) ──
-const track = document.createElement('div');
+// ── build track: data-panel (col 0) + h2-panel (col 1, default) ──
+let track = document.createElement('div');
 track.className = 'swipe-track';
 
-const dataPanel = document.createElement('div');
-dataPanel.className = 'data-panel';
+let dataPanel = document.createElement('div');
+dataPanel.className = 'swipe-panel data-panel';
 articles.forEach(a => dataPanel.appendChild(a));
 
-const h2Panel = document.createElement('div');
+let h2Panel = document.createElement('div');
 h2Panel.className = 'swipe-panel h2-panel';
 h2Panel.appendChild(h2);
-const hint = document.createElement('div');
+let hint = document.createElement('div');
 hint.className = 'swipe-hint';
 h2Panel.appendChild(hint);
 
@@ -36,65 +23,38 @@ track.appendChild(dataPanel);
 track.appendChild(h2Panel);
 section.appendChild(track);
 
-// ── Collect shared headers that stay visible across cols 0-1 ──
-const sharedHeaders = [];
-articles.forEach(article => {
-  const h3 = article.querySelector('h3');
-  if (h3) sharedHeaders.push(h3);
-  article.querySelectorAll(':scope > p:not(.director-signature)').forEach(p => {
-    sharedHeaders.push(p);
-  });
-  article.querySelectorAll('th[colspan]').forEach(th => {
-    sharedHeaders.push(th);
-  });
-});
-
-// Mark them for CSS (z-index, transition)
-sharedHeaders.forEach(el => el.classList.add('pinned-header'));
-
-// ── Fixed title ──
-
-// ── Pagination dots (3) ──
-const dots = document.createElement('div');
+// ── pagination dots (2) ──
+let dots = document.createElement('div');
 dots.className = 'swipe-dots';
-dots.innerHTML = [0, 1, 2].map(i =>
-  `<span class="dot${i === 2 ? ' active' : ''}" data-index="${i}"></span>`
+dots.innerHTML = [0, 1].map(i =>
+  `<span class="dot${i === 1 ? ' active' : ''}" data-index="${i}"></span>`
 ).join('');
 section.appendChild(dots);
-const dotEls = dots.querySelectorAll('.dot');
+let dotEls = dots.querySelectorAll('.dot');
 
-// ── Set initial state (col 2 = h2) ──
-section.classList.add('at-h2');
-
-// ── Navigation ──
-let currentCol = 2;
+// ── navigation ──
+let currentCol = 1;
 
 function goTo(col) {
-  col = Math.max(0, Math.min(2, col));
+  col = Math.max(0, Math.min(1, col));
   if (col === currentCol) return;
   currentCol = col;
 
-  // Position track
-  const offset = -(col * 100 / 3);
+  // slide track
+  let offset = -(col * 50);
   track.style.transform = `translateX(${offset}%)`;
 
-  // Counter-translate shared headers so they stay at viewport left edge
-  const counterX = col < 2 ? col * section.clientWidth : 0;
-  sharedHeaders.forEach(el => {
-    el.style.transform = `translateX(${counterX}px)`;
-  });
-
-  // Update dots + title/hint visibility
+  // update dots + hint visibility
   dotEls.forEach((d, i) => d.classList.toggle('active', i === col));
-  section.classList.toggle('at-h2', col === 2);
-  hint.style.opacity = col === 2 ? '' : '0';
+  section.classList.toggle('at-h2', col === 1);
+  hint.style.opacity = col === 1 ? '' : '0';
 }
 
-// ── Interactions ──
-h2.addEventListener('click', () => goTo(1));
+// ── interactions ──
+h2.addEventListener('click', () => goTo(0));
 
 dots.addEventListener('click', e => {
-  const dot = e.target.closest('.dot');
+  let dot = e.target.closest('.dot');
   if (dot) goTo(Number(dot.dataset.index));
 });
 
@@ -107,8 +67,8 @@ document.addEventListener('touchstart', e => {
 }, { passive: true });
 
 document.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
+  let dx = e.changedTouches[0].clientX - touchStartX;
+  let dy = e.changedTouches[0].clientY - touchStartY;
   if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 48) {
     goTo(currentCol + (dx > 0 ? -1 : 1));
   }
@@ -117,19 +77,4 @@ document.addEventListener('touchend', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') goTo(currentCol + 1);
   if (e.key === 'ArrowLeft') goTo(currentCol - 1);
-});
-
-// ── Recalculate counter-translate on resize ──
-window.addEventListener('resize', () => {
-  if (currentCol < 2) {
-    const counterX = currentCol * section.clientWidth;
-    sharedHeaders.forEach(el => {
-      el.style.transition = 'none';
-      el.style.transform = `translateX(${counterX}px)`;
-    });
-    // Restore transition after reflow
-    requestAnimationFrame(() => {
-      sharedHeaders.forEach(el => { el.style.transition = ''; });
-    });
-  }
 });
