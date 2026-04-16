@@ -5,8 +5,7 @@ A website serving as an exhibition guide for the TYPE3 2026: AI/AS26 exhibition 
 
 **Build order (as instructed):**
 1. [DONE] Exhibitions by the Numbers → `exhibitions-by-the-numbers.html`
-2. [HTML DONE] Art in the Exhibition → `just-plain-stupid.html`
-3. [HTML DONE] Exhibition Intro → `exhibition-intro.html`
+2. [HTML DONE] Exhibition Intro → `exhibition-intro.html`
 4. [HTML DONE] Staff/Credits → `staff-credits.html`
 5. [HTML DONE] Sponsor listings → `sponsors.html`
 6. [HTML DONE] Donation Card → `donation-card.html`
@@ -103,7 +102,6 @@ There is no single "main accent." Each exhibition has its own accent colour. Use
 | `--accent-living-paintings` | `#BF79B3` | Living pAIntings |
 | `--accent-doug` | `#5A75FA` | D.O.U.G. |
 | `--accent-norilla` | `#EB1E16` | NoRILLA |
-| `--accent-just-plain-stupid` | `#EBE117` | Just plAIn stupid |
 
 Define in `:root` at the top of each stylesheet:
 ```css
@@ -115,7 +113,6 @@ Define in `:root` at the top of each stylesheet:
     --accent-living-paintings: #BF79B3;
     --accent-doug: #5A75FA;
     --accent-norilla: #EB1E16;
-    --accent-just-plain-stupid: #EBE117;
 }
 ```
 
@@ -145,7 +142,6 @@ All copy lives in: `Guide Copy.txt` (under `src/Guide Copy.txt` in this repo).
 - Exhibition Sponsors (Tiers 1–6): lines 11–25
 - Exhibition Intro: lines 28–31
 - Art in the Exhibition: lines 34–82
-  - Just plAIn stupid: lines 35–41
   - DOUG: lines 43–59
   - NoRILLA: lines 62–69
   - Living pAIntings: lines 72–82
@@ -163,7 +159,6 @@ All copy lives in: `Guide Copy.txt` (under `src/Guide Copy.txt` in this repo).
 |------|-------------|
 | `index.html` | Main menu — links to all sections |
 | `exhibition-intro.html` | Exhibition intro copy |
-| `just-plain-stupid.html` | Just plAIn stupid artwork page |
 | `doug.html` | D.O.U.G. artwork page |
 | `norilla.html` | NoRILLA artwork page |
 | `living-paintings.html` | Living pAIntings artwork page |
@@ -181,6 +176,7 @@ All copy lives in: `Guide Copy.txt` (under `src/Guide Copy.txt` in this repo).
 | `js/menu-include.js` | Single source of truth for header + menu overlay markup (injected via JS) |
 | `js/header.js` | Header scroll behaviour + menu toggle |
 | `js/numbers.js` | Numbers page swipe/interaction logic |
+| `js/coding-with-character.js` | Coding with Character page swipe/interaction logic |
 | `js/sponsors.js` | Sponsors page swipe/interaction logic |
 | `fonts/` | Young Serif OTF files (Light, Regular, Medium, Bold + italics) |
 | `img/` | Background images (`bg1–4.png`), sponsor logo lockup (`lockup.svg`) |

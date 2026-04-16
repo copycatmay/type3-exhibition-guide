@@ -70,7 +70,6 @@
   --accent-living-paintings: #BF79B3;
   --accent-doug: #5A75FA;
   --accent-norilla: #EB1E16;
-  --accent-just-plain-stupid: #EBE117;
 
   --font-display: "YoungSerif", serif;
   --font-body: akzidenz-grotesk-next, sans-serif;
@@ -529,13 +528,11 @@ article > p {
 
 /* per-exhibition accent colour — sets --page-accent for inherited use */
 #doug            { --page-accent: var(--accent-doug); }
-#just-plain-stupid { --page-accent: var(--accent-just-plain-stupid); }
 #norilla         { --page-accent: var(--accent-norilla); }
 #living-paintings { --page-accent: var(--accent-living-paintings); }
 
 /* per-exhibition accent colour on h2 */
 #doug > .hero-img + h2            { color: var(--accent-doug); }
-#just-plain-stupid > .hero-img + h2 { color: var(--accent-just-plain-stupid); }
 #norilla > .hero-img + h2         { color: var(--accent-norilla); }
 #living-paintings > .hero-img + h2 { color: var(--accent-living-paintings); }
 

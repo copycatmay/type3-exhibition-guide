@@ -6,8 +6,6 @@ const exhibitions = [
   { img: "living-paintings-bg-2.png", accent: "#BF79B3" },
   { img: "norilla-bg-1.png", accent: "#EB1E16" },
   { img: "norilla-bg-2.png", accent: "#EB1E16" },
-  { img: "just-plain-stupid-bg-1.png", accent: "#EBE117" },
-  { img: "just-plain-stupid-bg-2.png", accent: "#EBE117" },
 ];
 const exhibit = exhibitions[Math.floor(Math.random() * exhibitions.length)];
 document.documentElement.style.setProperty("--color-3", exhibit.accent);

@@ -48,6 +48,10 @@
                 id="other-amount"
                 name="other-amount"
                 placeholder="$"
+                min="1"
+                step="1"
+                inputmode="numeric"
+                pattern="[0-9]*"
                 aria-label="Custom donation amount"
               />
             </label>
@@ -127,6 +131,24 @@
         </p>
       </form>
     </section>
+    <script>
+      const otherAmount = document.getElementById('other-amount');
+      otherAmount.addEventListener('keydown', (e) => {
+        if (
+          e.key.length === 1 &&
+          !/[0-9]/.test(e.key) &&
+          !e.ctrlKey && !e.metaKey
+        ) {
+          e.preventDefault();
+        }
+      });
+      otherAmount.addEventListener('paste', (e) => {
+        const paste = (e.clipboardData || window.clipboardData).getData('text');
+        if (!/^\d+$/.test(paste)) {
+          e.preventDefault();
+        }
+      });
+    </script>
     <script src="js/header.js"></script>
   </body>
 </html>

@@ -359,7 +359,7 @@ tbody tr:first-child th[colspan] {
   font-size: 12pt;
   font-weight: 400;
   text-align: left;
-  padding: 0.75rem 0 0.25rem 1rem;
+  padding: 0.75rem 0 1.25rem 1rem;
   color: var(--color-1);
   border-bottom: 1px solid var(--color-3);
   text-transform: uppercase;
@@ -367,7 +367,7 @@ tbody tr:first-child th[colspan] {
 @media (min-width: 768px) {
   tbody tr:first-child th[colspan] {
     font-size: 24pt;
-    padding: 1.25rem 0 0.25rem 1.5rem;
+    padding: 1.25rem 0 1.25rem 1.5rem;
   }
 }
 
@@ -379,11 +379,11 @@ tbody tr:first-child th[colspan] {
         <td>Physical plant and security</td>, <td>$10,741</td> */
 tbody td,
 tbody th[scope="row"] {
-  padding: 0.2rem 0.35rem;
+  padding: 0.45rem 0.35rem 0.2rem 0;
   vertical-align: top;
   font-size: 9.5pt;
   font-weight: 400;
-  font-family: var(--font-condensed);
+  font-family: var(--font-body);
 }
 tbody td:not(:first-child) {
   font-size: 12pt;
@@ -391,7 +391,7 @@ tbody td:not(:first-child) {
 @media (min-width: 768px) {
   tbody td,
   tbody th[scope="row"] {
-    padding: 0.3rem 0.5rem;
+    padding: 0.45rem 0.5rem 0.3rem 0;
     font-size: 12pt;
   }
   tbody td:not(:first-child) {
@@ -406,6 +406,15 @@ tbody th[scope="row"] {
 
 tbody td {
   text-align: right;
+}
+tbody td:first-child {
+  text-align: left;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  tbody td:first-child {
+    padding-left: 1.5rem;
+  }
 }
 
 /* Alternating row tint
@@ -422,12 +431,25 @@ tbody tr:not(:first-child):nth-child(even) {
    e.g. <tr class="row-total"><th>Total Revenue</th><td>$74,919</td>...</tr> */
 tr.row-total th,
 tr.row-total td {
+  font-size: 12pt;
   font-weight: 400;
   font-family: var(--font-body);
   border-top: 1px solid var(--color-1);
   padding-top: 1rem;
   padding-bottom: 1.5rem;
   text-transform: uppercase;
+}
+tr.row-total th {
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  tr.row-total th,
+  tr.row-total td {
+    font-size: 24pt;
+  }
+  tr.row-total th {
+    padding-left: 1.5rem;
+  }
 }
 
 
@@ -438,10 +460,10 @@ tr.row-total td {
    e.g. <tfoot><tr><td>Remeasurement related to pension plan</td>...</tr></tfoot> */
 tfoot td,
 tfoot th {
-  padding: 0.2rem 0.35rem;
+  padding: 0.45rem 0.35rem 0.2rem 0;
   font-size: 9.5pt;
   font-weight: 400;
-  font-family: var(--font-condensed);
+  font-family: var(--font-body);
   vertical-align: top;
 }
 tfoot td:not(:first-child) {
@@ -450,7 +472,7 @@ tfoot td:not(:first-child) {
 @media (min-width: 768px) {
   tfoot td,
   tfoot th {
-    padding: 0.3rem 0.5rem;
+    padding: 0.45rem 0.5rem 0.3rem 0;
     font-size: 12pt;
   }
   tfoot td:not(:first-child) {
@@ -465,6 +487,15 @@ tfoot th[scope="row"] {
 tfoot td {
   text-align: right;
 }
+tfoot td:first-child {
+  text-align: left;
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  tfoot td:first-child {
+    padding-left: 1.5rem;
+  }
+}
 
 tfoot tr.row-total th,
 tfoot tr.row-total td {
@@ -472,16 +503,16 @@ tfoot tr.row-total td {
   font-weight: 700;
   border-top: 1px solid var(--color-1);
 }
-tfoot tr.row-total td:not(:first-child) {
-  font-size: 12pt;
+tfoot tr.row-total th {
+  padding-left: 1rem;
 }
 @media (min-width: 768px) {
   tfoot tr.row-total th,
   tfoot tr.row-total td {
     font-size: 12pt;
   }
-  tfoot tr.row-total td:not(:first-child) {
-    font-size: 24pt;
+  tfoot tr.row-total th {
+    padding-left: 1.5rem;
   }
 }
 
@@ -495,11 +526,21 @@ tfoot tr.row-total td:not(:first-child) {
   font-size: 12pt;
   margin: 1.5rem 0 1rem;
   color: var(--color-2);
+  padding-left: 1rem;
+}
+@media (min-width: 768px) {
+  .director-signature {
+    padding-left: 1.5rem;
+  }
 }
 
-.director-signature span {
-  color: var(--color-3);
-  font-style: italic;
+.signature-img {
+  height: 4.4rem;
+  width: auto;
+  vertical-align: baseline;
+  position: relative;
+  top: 0.9rem;
+  margin-left: 0.5rem;
 }
 
 /* ============================================================

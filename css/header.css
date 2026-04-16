@@ -96,8 +96,8 @@ html body.index-home {
    LOGO
    ============================================================ */
 .header-logo {
-  width: 6rem;
-  height: 3rem;
+  width: 7.5rem;
+  height: 3.75rem;
 }
 
 .header-logo img {
@@ -134,11 +134,11 @@ html body.index-home {
   margin: auto 0;
 }
 
-.menu-overlay-list li {
+.menu-overlay-list > li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.menu-overlay-list li:first-child {
+.menu-overlay-list > li:first-child {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -153,6 +153,7 @@ html body.index-home {
   text-decoration: none;
   transition: color 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
 }
 
 .menu-overlay-list a:active {
@@ -173,7 +174,6 @@ html body.index-home {
 .has-submenu {
   display: grid;
   grid-template-rows: auto 0fr;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   transition: grid-template-rows 0.45s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
@@ -197,6 +197,7 @@ html body.index-home {
   cursor: pointer;
   text-align: left;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .submenu-toggle.is-active {
@@ -225,11 +226,6 @@ html body.index-home {
   overflow: hidden;
 }
 
-.submenu li {
-  border-bottom: none;
-  border-top: none;
-}
-
 .submenu li + li {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -244,6 +240,7 @@ html body.index-home {
   color: var(--color-1);
   text-decoration: none;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 

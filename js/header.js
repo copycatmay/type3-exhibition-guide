@@ -17,7 +17,6 @@ if (mainSection) {
 
 // Exhibition accent colours — applied to all nav links site-wide
 const accentMap = {
-  'just-plain-stupid.html': '#EBE117',
   'doug.html':              '#5A75FA',
   'norilla.html':           '#EB1E16',
   'living-paintings.html':  '#BF79B3',

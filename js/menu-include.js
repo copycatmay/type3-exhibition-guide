@@ -7,7 +7,7 @@ let menuHTML = `
     <span class="menu-toggle-letter menu-toggle-m">M</span>
     <span class="menu-toggle-letter menu-toggle-x">X</span>
   </button>
-  <div class="header-logo"><img src="img/exhibitLogo.png" alt="TYPE3 2026: AI/AS26"></div>
+  <a href="index.html" class="header-logo"><img src="img/exhibitLogo.svg" alt="TYPE3 2026: AI/AS26"></a>
 </header>
 
 <nav id="site-menu-overlay" class="menu-overlay" aria-hidden="true">
@@ -17,7 +17,6 @@ let menuHTML = `
     <li class="has-submenu">
       <button class="submenu-toggle">Exhibitions</button>
       <ul class="submenu">
-        <li><a href="just-plain-stupid.html">just pl<em>AI</em>n stupid</a></li>
         <li><a href="doug.html">D.O.U.G.</a></li>
         <li><a href="norilla.html">NoRILLA</a></li>
         <li><a href="living-paintings.html">living p<em>AI</em>ntings</a></li>
@@ -36,7 +35,6 @@ let menuHTML = `
       <button class="submenu-toggle">Articles</button>
       <ul class="submenu">
         <li><a href="coding-with-character.html">Coding with Character</a></li>
-        <li><a href="coding-with-character.html#type-recommendations">Typefaces</a></li>
       </ul>
     </li>
     <li><a href="donation-card.html">Donations</a></li>
