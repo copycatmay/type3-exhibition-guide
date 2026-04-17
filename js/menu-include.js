@@ -17,9 +17,9 @@ let menuHTML = `
     <li class="has-submenu">
       <button class="submenu-toggle">Exhibitions</button>
       <ul class="submenu">
-        <li><a href="doug.html">D.O.U.G.</a></li>
-        <li><a href="norilla.html">NoRILLA</a></li>
-        <li><a href="living-paintings.html">living p<em>AI</em>ntings</a></li>
+        <li><a href="doug.html">What will you draw?<span class="submenu-exhibit-name">D.O.U.G.</span></a></li>
+        <li><a href="norilla.html">What will you create?<span class="submenu-exhibit-name">NoRILLA</span></a></li>
+        <li><a href="living-paintings.html">What will you see?<span class="submenu-exhibit-name">living p<em>AI</em>ntings</span></a></li>
       </ul>
     </li>
     <li><a href="exhibitions-by-the-numbers.html">by the Numbers</a></li>

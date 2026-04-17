@@ -37,8 +37,7 @@ document.querySelectorAll('.menu-overlay-list a').forEach(link => {
     const submenu = link.closest('.has-submenu');
     if (submenu) {
       submenu.classList.add('is-open');
-      // Mark all links in this submenu active
-      submenu.querySelectorAll('a').forEach(a => a.classList.add('is-active'));
+      link.classList.add('is-active');
       const toggle = submenu.querySelector('.submenu-toggle');
       if (toggle) {
         toggle.classList.add('is-active');
@@ -141,6 +140,7 @@ let lastScrollY = window.scrollY;
 // Hero parallax + contrast detection
 const heroEl = document.querySelector('.hero-img');
 const heroImg = heroEl ? heroEl.querySelector('img') : null;
+const heroQmark = heroEl ? heroEl.querySelector('.hero-qmark') : null;
 
 const updateHeaderContrast = () => {
   if (!heroEl) return;
@@ -161,9 +161,12 @@ window.addEventListener('scroll', () => {
     }
   }
 
-  // Parallax — image scrolls at 40% speed
+  // Parallax — image at 40%, question mark at 65%, content at 100%
   if (heroImg) {
     heroImg.style.transform = `translateY(${currentScrollY * 0.4}px)`;
+  }
+  if (heroQmark) {
+    heroQmark.style.transform = `translate(-50%, calc(-50% + ${currentScrollY * 0.65}px))`;
   }
 
   // Swap toggle colour when header leaves the hero

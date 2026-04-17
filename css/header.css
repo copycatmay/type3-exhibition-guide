@@ -58,7 +58,9 @@ html body.index-home {
   font-weight: 700;
   line-height: 1;
   color: var(--color-1);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 .menu-toggle-m {
@@ -84,7 +86,10 @@ html body.index-home {
 /* Auto-contrast: white toggle when header sits over the hero image */
 .site-header.on-dark .menu-toggle-letter {
   color: var(--color-6);
-  transition: opacity 0.35s ease, transform 0.35s ease, color 0.3s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    color 0.3s ease;
 }
 
 .site-header.on-dark.is-open .menu-toggle-letter,
@@ -120,7 +125,9 @@ html body.index-home {
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .menu-overlay.is-open {
@@ -161,7 +168,11 @@ html body.index-home {
 }
 
 .menu-overlay-list a.is-active {
-  color: color-mix(in srgb, var(--link-accent, var(--color-3)) 80%, transparent);
+  color: color-mix(
+    in srgb,
+    var(--link-accent, var(--color-3)) 80%,
+    transparent
+  );
 }
 
 .menu-overlay-list a.has-accent {
@@ -201,7 +212,11 @@ html body.index-home {
 }
 
 .submenu-toggle.is-active {
-  color: color-mix(in srgb, var(--link-accent, var(--color-3)) 80%, transparent);
+  color: color-mix(
+    in srgb,
+    var(--link-accent, var(--color-3)) 80%,
+    transparent
+  );
 }
 
 .submenu-toggle::after {
@@ -232,25 +247,41 @@ html body.index-home {
 
 .submenu a {
   display: block;
-  padding: 0.25rem 0;
+  padding: 0.25rem 0 0.25rem 0.6rem;
+  border-left: 2px solid transparent;
   font-family: var(--font-body);
   font-size: 24pt;
   font-weight: 300;
   line-height: 1.1;
   color: var(--color-1);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-left-color 0.2s ease;
   white-space: nowrap;
 }
 
+.submenu a.is-active {
+  border-left-color: var(--link-accent);
+}
+
+.submenu-exhibit-name {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  opacity: 0.7;
+}
 
 /* ============================================================
    PAGE ENTER — staggered entrance animation
    Lives in header.css so it applies on every page
    ============================================================ */
 @keyframes page-enter {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Hide section children by default — JS adds .page-enter to animate them in */
@@ -269,5 +300,8 @@ body > section > * {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-enter { animation: none; opacity: 1; }
+  .page-enter {
+    animation: none;
+    opacity: 1;
+  }
 }

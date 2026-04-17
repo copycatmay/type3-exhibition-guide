@@ -328,7 +328,7 @@ article > h4 {
 .sponsor-list {
   list-style: none;
   padding: 0;
-  font-family: var(--font-condensed);
+  font-family: var(--font-body);
   font-size: 12pt;
   line-height: 1.4;
   color: var(--color-1);

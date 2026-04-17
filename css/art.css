@@ -67,9 +67,9 @@
   --color-5: #f16bff;
   --color-6: #ffffff;
 
-  --accent-living-paintings: #BF79B3;
-  --accent-doug: #5A75FA;
-  --accent-norilla: #EB1E16;
+  --accent-living-paintings: #bf79b3;
+  --accent-doug: #5a75fa;
+  --accent-norilla: #eb1e16;
 
   --font-display: "YoungSerif", serif;
   --font-body: akzidenz-grotesk-next, sans-serif;
@@ -145,7 +145,6 @@ article {
     padding: 2rem;
   }
 }
-
 
 /* ============================================================
    SUB-SECTION HEADING — h3
@@ -393,6 +392,7 @@ article > p {
   margin-top: 1.25rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--page-accent, var(--color-3));
+  text-align: left;
 }
 
 .artist-bio h4 {
@@ -475,12 +475,23 @@ article > p {
 }
 
 /* Use desktop table sizes in modal since it's the expanded view */
-.article-modal-content table { font-size: 12pt; }
-.article-modal-content tbody tr:first-child th[colspan] { font-size: 24pt; padding: 1.25rem 0 0.25rem; }
+.article-modal-content table {
+  font-size: 12pt;
+}
+.article-modal-content tbody tr:first-child th[colspan] {
+  font-size: 24pt;
+  padding: 1.25rem 0 0.25rem;
+}
 .article-modal-content tbody td,
-.article-modal-content tbody th[scope="row"] { font-size: 12pt; padding: 0.3rem 0.5rem; }
+.article-modal-content tbody th[scope="row"] {
+  font-size: 12pt;
+  padding: 0.3rem 0.5rem;
+}
 .article-modal-content tfoot td,
-.article-modal-content tfoot th { font-size: 12pt; padding: 0.3rem 0.5rem; }
+.article-modal-content tfoot th {
+  font-size: 12pt;
+  padding: 0.3rem 0.5rem;
+}
 
 /* Let table fill modal width without inner scroll conflict */
 .article-modal-content .table-wrapper {
@@ -527,14 +538,46 @@ article > p {
 }
 
 /* per-exhibition accent colour — sets --page-accent for inherited use */
-#doug            { --page-accent: var(--accent-doug); }
-#norilla         { --page-accent: var(--accent-norilla); }
-#living-paintings { --page-accent: var(--accent-living-paintings); }
+#doug {
+  --page-accent: var(--accent-doug);
+}
+#norilla {
+  --page-accent: var(--accent-norilla);
+}
+#living-paintings {
+  --page-accent: var(--accent-living-paintings);
+}
 
 /* per-exhibition accent colour on h2 */
-#doug > .hero-img + h2            { color: var(--accent-doug); }
-#norilla > .hero-img + h2         { color: var(--accent-norilla); }
-#living-paintings > .hero-img + h2 { color: var(--accent-living-paintings); }
+#doug > .hero-img + h2 {
+  color: var(--accent-doug);
+}
+#norilla > .hero-img + h2 {
+  color: var(--accent-norilla);
+}
+#living-paintings > .hero-img + h2 {
+  color: var(--accent-living-paintings);
+}
+
+/* ============================================================
+   HERO QUESTION MARK
+   ============================================================ */
+.hero-qmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 135vh;
+  line-height: 1;
+  color: var(--page-accent);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: transform;
+}
 
 /* ============================================================
    HEADER — white background when scrolled past hero
